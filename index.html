@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CJOTA Rasteirinhas - Calçados Femininos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset e configurações base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pink: #dc2eda;
+            --yellow: #f2ea21;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --dark-gray: #2c2c2c; /* Escurecido para melhor contraste */
+            --shadow: 0 10px 30px rgba(220, 46, 218, 0.1);
+            --shadow-hover: 0 15px 40px rgba(220, 46, 218, 0.25);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7; /* Aumentado para melhor legibilidade */
+            color: var(--dark-gray);
+            background: linear-gradient(135deg, #fff5fc 0%, #fffcf0 100%); /* Suavizado o gradiente */
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative; /* Necessário para o z-index dos efeitos */
+        }
+
+        /* --- EFEITOS DE FUNDO --- */
+        .background-effects {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none; /* Garante que não interfira com os cliques */
+            z-index: -1; /* Coloca os efeitos atrás de todo o conteúdo */
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.1; /* Reduzida a opacidade para mais sutileza */
+            background: linear-gradient(45deg, var(--pink), var(--yellow));
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .shape1 {
+            width: 150px;
+            height: 150px;
+            top: 10%;
+            left: 5%;
+            border-radius: 50%;
+            animation-duration: 25s;
+        }
+
+        .shape2 {
+            width: 80px;
+            height: 80px;
+            top: 75%;
+            left: 15%;
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            animation-duration: 18s;
+            animation-direction: reverse;
+        }
+
+        .shape3 {
+            width: 120px;
+            height: 120px;
+            top: 20%;
+            right: 5%;
+            border-radius: 50%;
+            animation-duration: 22s;
+        }
+
+        .shape4 {
+            width: 60px;
+            height: 60px;
+            top: 80%;
+            right: 10%;
+            border-radius: 30% 70% 40% 60% / 50% 40% 60% 50%;
+            animation-duration: 30s;
+            animation-direction: reverse;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-30px) rotate(180deg) scale(1.1);
+            }
+            100% {
+                transform: translateY(0px) rotate(360deg);
+            }
+        }
+        /* --- FIM DOS EFEITOS DE FUNDO --- */
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1; /* Garante que o conteúdo principal fique na frente */
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* Estilo da Logo */
+        .logo-image {
+            max-width: 200px; /* Aumentado em ~10% (de 180px) */
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .company-name {
+            font-size: 2.8rem; /* Levemente reduzido para harmonia com a logo maior */
+            font-weight: 700;
+            color: var(--pink);
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            background: linear-gradient(45deg, var(--pink), #e854ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .company-subtitle {
+            font-size: 1.25rem; /* Levemente aumentado para clareza */
+            font-weight: 600;
+            color: var(--dark-gray);
+            opacity: 0.85;
+        }
+
+        /* Seção de Introdução */
+        .intro-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .description {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+        }
+
+        .description::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 20px;
+            padding: 2px;
+            background: linear-gradient(45deg, var(--pink), var(--yellow));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: exclude;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+        }
+        
+        /* --- NOVO ESTILO PARA A LISTA DE VANTAGENS --- */
+        .description-title {
+            color: var(--pink);
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .features-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .features-list .icon {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            width: 30px; /* Alinhamento dos ícones */
+            text-align: center;
+        }
+        /* --- FIM DO NOVO ESTILO --- */
+
+
+        /* Seção de Botões */
+        .actions-section {
+            margin-bottom: 50px;
+        }
+
+        .buttons-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .action-button {
+            display: flex;
+            align-items: center;
+            padding: 20px 25px; /* Ajustado o padding */
+            background: var(--white);
+            border-radius: 20px;
+            text-decoration: none;
+            color: var(--dark-gray);
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .action-button:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .button-icon {
+            font-size: 2.2rem; /* Ajustado para melhor alinhamento */
+            margin-right: 20px;
+            min-width: 50px;
+            text-align: center;
+        }
+
+        .button-content {
+            text-align: left;
+        }
+
+        .button-content h3 {
+            font-size: 1.32rem; /* Aumentado em 10% */
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--pink);
+        }
+
+        .button-content p {
+            font-size: 1.1rem; /* Aumentado em 10% */
+            font-weight: 400; /* Reduzido para contraste com o título */
+            color: var(--dark-gray);
+            opacity: 0.8;
+        }
+
+        .address p {
+            margin-bottom: 3px;
+            font-size: 0.9rem;
+        }
+
+        /* Botões específicos com cores */
+        .catalog-button {
+            background: linear-gradient(135deg, var(--pink), #e854ea);
+            color: var(--white);
+            animation: pulse-button 2.5s infinite ease-in-out;
+        }
+
+        .catalog-button .button-content h3,
+        .catalog-button .button-content p {
+            color: var(--white);
+        }
+
+        .custom-button {
+            background: linear-gradient(135deg, var(--yellow), #f5ed4a);
+            color: var(--dark-gray);
+            animation: pulse-button 2.5s infinite ease-in-out;
+            animation-delay: 0.5s; /* Delay para dessincronizar */
+        }
+
+        .custom-button .button-content h3 {
+            color: var(--dark-gray);
+        }
+
+        .vip-button {
+            background: linear-gradient(135deg, var(--pink), var(--yellow));
+            color: var(--white);
+        }
+
+        .vip-button .button-content h3,
+        .vip-button .button-content p {
+            color: var(--white);
+        }
+        
+        /* Animação de pulsar para os botões de destaque */
+        @keyframes pulse-button {
+            0% {
+                transform: scale(1);
+                box-shadow: var(--shadow);
+            }
+            50% {
+                transform: scale(1.03);
+                box-shadow: var(--shadow-hover);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: var(--shadow);
+            }
+        }
+
+        /* --- SEÇÃO DEPOIMENTOS --- */
+        .testimonials-section {
+            margin-bottom: 50px;
+        }
+
+        .testimonials-section h2 {
+            font-size: 2rem;
+            color: var(--pink);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .testimonial-header {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+        
+        .stars {
+            font-size: 1.2rem;
+            color: #ffc107; /* Cor de estrela */
+            margin-bottom: 5px;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-body p {
+            margin-bottom: 15px;
+            word-wrap: break-word; /* Garante que o texto quebre a linha */
+        }
+
+        .testimonial-images {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .testimonial-footer {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+            opacity: 0.7;
+            font-weight: 600;
+        }
+
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            color: var(--dark-gray);
+            opacity: 0.7;
+            font-weight: 600;
+        }
+        
+        /* Animação de Rolagem */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.6s ease-out;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            .company-name {
+                font-size: 2.5rem;
+            }
+            .company-subtitle {
+                font-size: 1.1rem;
+            }
+            .action-button {
+                padding: 20px;
+            }
+            .button-icon {
+                font-size: 2rem;
+                margin-right: 15px;
+                min-width: 50px;
+            }
+            .button-content h3 {
+                font-size: 1.1rem;
+            }
+            .button-content p {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .company-name {
+                font-size: 2.2rem;
+            }
+            .description {
+                padding: 20px;
+            }
+            .action-button {
+                padding: 15px;
+                flex-direction: column;
+                text-align: center;
+            }
+            .button-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            .button-content {
+                text-align: center;
+            }
+            .shape1, .shape3 {
+                width: 80px;
+                height: 80px;
+            }
+            .shape2, .shape4 {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-effects">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
+        <div class="shape shape4"></div>
+    </div>
+
+    <div class="container">
+        <!-- Header com Nome da Empresa -->
+        <header class="header reveal">
+            <img src="https://i.ibb.co/nsRHH5Hp/logoo-1.png" alt="Logo CJOTA Rasteirinhas" class="logo-image">
+            <h1 class="company-name">Bem-vindo, Revendedor!</h1>
+            <p class="company-subtitle">Compre direto da fábrica</p>
+        </header>
+
+        <!-- Descrição Institucional -->
+        <section class="intro-section reveal">
+            <div class="description">
+                <h3 class="description-title">Somos fabricantes especialistas em rasteirinhas!</h3>
+                <ul class="features-list">
+                    <li><span class="icon">🚚</span> Enviamos para todo o Brasil.</li>
+                    <li><span class="icon">📦</span> Pedido mínimo de 5 peças.</li>
+                    <li><span class="icon">✨</span> Trabalhamos com Private Label.</li>
+                    <li><span class="icon">📋</span> Personalize com sua marca (mín. 2 grades fechadas).</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Botões de Ação -->
+        <section class="actions-section">
+            <div class="buttons-grid">
+                <!-- Ver Catálogo e Comprar -->
+                <a href="https://cjotarasteirinhas.com.br/" class="action-button catalog-button reveal" target="_blank">
+                    <div class="button-icon">🛍️</div>
+                    <div class="button-content">
+                        <h3>Ver Catálogo e Comprar</h3>
+                        <p>Confira nossa coleção completa</p>
+                    </div>
+                </a>
+
+                <!-- Personalizar com Logomarca -->
+                <a href="https://wa.me/5562981480687?text=Ol%C3%A1!%20Quero%20personalizar%20com%20minha%20logomarca" class="action-button custom-button reveal" target="_blank">
+                    <div class="button-icon">👑</div>
+                    <div class="button-content">
+                        <h3>Personalizar com Minha Logomarca</h3>
+                        <p>Private Label - Sua marca nos nossos produtos</p>
+                    </div>
+                </a>
+
+                <!-- Fale Conosco -->
+                <a href="https://wa.me/5562981480687" class="action-button reveal" target="_blank">
+                    <div class="button-icon">💬</div>
+                    <div class="button-content">
+                        <h3>Fale Conosco</h3>
+                        <p>Tire suas dúvidas pelo WhatsApp</p>
+                    </div>
+                </a>
+
+                <!-- Loja Física -->
+                <a href="https://maps.app.goo.gl/wf5vC9jTiAto6aRV7" class="action-button reveal" target="_blank">
+                    <div class="button-icon">📍</div>
+                    <div class="button-content">
+                        <h3>Loja Física</h3>
+                        <div class="address">
+                            <p><strong>Shopping Centro Oeste Outlet</strong></p>
+                            <p>Corredor Aracaju - loja 665</p>
+                            <p>Avenida Independência, 3334–3512</p>
+                            <p>Setor Central, Goiânia - GO</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Grupo VIP -->
+                <a href="https://chat.whatsapp.com/GDXFA5sLna96AgtBh4Svlg?mode=ac_t" class="action-button vip-button reveal" target="_blank">
+                    <div class="button-icon">⭐</div>
+                    <div class="button-content">
+                        <h3>Grupo VIP</h3>
+                        <p>Promoções & Lançamentos exclusivos</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Seção de Depoimentos -->
+        <section class="testimonials-section reveal">
+            <h2>O que nossas clientes dizem</h2>
+
+            <!-- Depoimento 1 (Novo) -->
+            <article class="testimonial-card">
+                <header class="testimonial-header">
+                    <div class="stars">★★★★★</div>
+                    <div class="testimonial-author">PATRICIA (31) 9...-6995</div>
+                </header>
+                <div class="testimonial-body">
+                    <p>Estou amando, podem comprar sem medo meninas chegou hoje meu terceiro pedido. Ah e é de ótima qualidade.. obg Caroline</p>
+                    <div class="testimonial-images">
+                        <img src="https://i.ibb.co/N23WNkfm/Captura-de-tela-2025-08-05-142127.png" alt="Foto do produto enviado para Patricia" class="testimonial-img">
+                        <img src="https://i.ibb.co/kVBxh85d/Captura-de-tela-2025-08-05-142200.png" alt="Foto do produto enviado para Patricia" class="testimonial-img">
+                        <img src="https://i.ibb.co/5XYdvPN3/Captura-de-tela-2025-08-05-142238.png" alt="Foto do produto enviado para Patricia" class="testimonial-img">
+                    </div>
+                </div>
+                <footer class="testimonial-footer">
+                    <span class="location">📍 Araçaí-MG, em 23/12/2024</span>
+                </footer>
+            </article>
+
+            <!-- Depoimento 2 -->
+            <article class="testimonial-card">
+                <header class="testimonial-header">
+                    <div class="stars">★★★★★</div>
+                    <div class="testimonial-author">Karine (94) 9...-4690</div>
+                </header>
+                <div class="testimonial-body">
+                    <p>Passando pra agradecer vocês da empresa cj rasteirinhas, que fazem parte de nossas jornada só tenho agradecer por está sempre com melhor empresa de rasteirinha 😍 atendimento nota 💯 é também pelo carinho que tem com agente todos meus Recebidos de vocês são de excelência qualidade conforto, design perfeito em cada detalhes. Nada a reclamar só agradecer Que Deus continue abençoando vocês e sua empresa equipe 🙌🙏❤️😊</p>
+                </div>
+                <footer class="testimonial-footer">
+                    <span class="location">📍 Marabá-PA, em 04/07/2025</span>
+                </footer>
+            </article>
+
+            <!-- Depoimento 3 -->
+            <article class="testimonial-card">
+                <header class="testimonial-header">
+                    <div class="stars">★★★★★</div>
+                    <div class="testimonial-author">Rayane (31) 9...-7725</div>
+                </header>
+                <div class="testimonial-body">
+                    <p>Ótimas sandálias e lindas demais o maior desafio é vender todas ao invés de ficar com elas 😁 Amei, chegou tudo direitinho, certinho e bem embalado ❤️ Obrigada equipe vocês arrasaram</p>
+                </div>
+                <footer class="testimonial-footer">
+                    <span class="location">📍 Matozinhos-MG, em 25/03/2025</span>
+                </footer>
+            </article>
+
+            <!-- Depoimento 4 -->
+            <article class="testimonial-card">
+                <header class="testimonial-header">
+                    <div class="stars">★★★★★</div>
+                    <div class="testimonial-author">Edineusa (61) 9...-4851</div>
+                </header>
+                <div class="testimonial-body">
+                    <p>Amei as rasteirinhas, o material é bom a entrega foi super rápida</p>
+                    <div class="testimonial-images">
+                        <img src="https://i.ibb.co/8LJ62CXd/Captura-de-tela-2025-08-05-141717.png" alt="Foto do produto enviado para Edineusa" class="testimonial-img">
+                    </div>
+                </div>
+                <footer class="testimonial-footer">
+                    <span class="location">📍 Brasília-DF, em 26/03/2025</span>
+                </footer>
+            </article>
+
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer reveal">
+            <p>&copy; 2025 CJOTA Rasteirinhas - Todos os direitos reservados</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const revealElements = document.querySelectorAll('.reveal');
+
+            // Adiciona um delay de animação para cada elemento
+            revealElements.forEach((el, index) => {
+                el.style.transitionDelay = `${index * 0.1}s`;
+            });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // Opcional: remove o observer depois que a animação acontece
+                        // observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1 // A animação começa quando 10% do elemento está visível
+            });
+
+            revealElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
