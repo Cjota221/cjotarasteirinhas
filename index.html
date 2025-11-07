@@ -3,660 +3,588 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CJOTA Rasteirinhas - Calçados Femininos</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Bem-vinda Revendedora</title>
     
-    <style>
-        /* Reset e configurações base */
+    <!-- Meta Tags para SEO e Compartilhamento --><meta name="description" content="Somos fabricantes! Vendemos no atacado com pedido mínimo de 5 pares. Enviamos para todo o Brasil.">
+    <!-- Open Graph (para mídias sociais) --><meta property="og:title" content="Bem-vinda Revendedora">
+    <meta property="og:description" content="Somos fabricantes! Vendemos no atacado com pedido mínimo de 5 pares.">
+    <meta property="og:image" content="https://i.ibb.co/kRKzZCt/logoo-1.png">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon (Emoji como Data URI) --><link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💖</text></svg>">
+
+    <!-- Importa a fonte "Inter" do Google Fonts --><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- REMOVIDO: Biblioteca de Ícones Font Awesome (substituída por SVGs embutidos) --><style>
+        /* --- Configurações Globais e Variáveis --- */
+        :root {
+            --cor-primaria: #DC2EDA;
+            --cor-secundaria: #f2ea22;
+            --cor-fundo: #ffffff;
+            --cor-texto-principal: #1b1b1b;
+            --cor-texto-secundario: #555555;
+            --cor-whatsapp: #25D366;
+            --cor-whatsapp-hover: #1EAF56;
+        }
+
+        /* --- Reset Básico e Configuração da Fonte --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --pink: #dc2eda;
-            --yellow: #f2ea21;
-            --white: #ffffff;
-            --light-gray: #f8f9fa;
-            --dark-gray: #2c2c2c; /* Escurecido para melhor contraste */
-            --shadow: 0 10px 30px rgba(220, 46, 218, 0.1);
-            --shadow-hover: 0 15px 40px rgba(220, 46, 218, 0.25);
-        }
-
-        html {
-            scroll-behavior: smooth;
+        html, body {
+            height: 100%;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.7; /* Aumentado para melhor legibilidade */
-            color: var(--dark-gray);
-            background: linear-gradient(135deg, #fff5fc 0%, #fffcf0 100%); /* Suavizado o gradiente */
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto-principal);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Alinha ao topo */
             min-height: 100vh;
-            overflow-x: hidden;
-            position: relative; /* Necessário para o z-index dos efeitos */
+            padding: 2rem 1rem;
+            opacity: 0;
+            animation: fadeIn 0.5s 0.1s ease-out forwards;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* ADICIONADO: Classe para esconder texto (para SEO) */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        /* --- Container Principal --- */
+        .container-principal {
+            width: 100%;
+            max-width: 600px; /* Largura máxima do conteúdo */
+            margin: 0 auto;
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 1.5rem; /* 24px */
+            /* Removida a sombra e borda do container principal para um visual mais limpo */
         }
 
-        /* --- EFEITOS DE FUNDO --- */
-        .background-effects {
-            position: fixed;
-            top: 0;
-            left: 0;
+        /* --- Banner de Cupom (REVERTIDO AO ESTILO ORIGINAL + BOTÃO) --- */
+        .banner-cupom {
+            display: flex; /* ADICIONADO: Para alinhar texto e botão */
+            align-items: center;
+            justify-content: space-between; /* ADICIONADO: Espaça o texto e o botão */
+            gap: 0.75rem; /* ADICIONADO: Espaço entre texto e botão */
+            
+            padding: 1rem 1.25rem;
+            border-radius: 1.25rem; /* 20px */
+            background: linear-gradient(45deg, var(--cor-primaria), var(--cor-secundaria));
+            color: #ffffff; /* CORRIGIDO: Trocado de preto para branco */
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* ADICIONADO: Sombra para legibilidade */
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-align: left; /* O flex cuida do alinhamento */
+            margin-top: 2rem;
+            margin-bottom: 2rem; /* Mantém o espaçamento corrigido */
+            box-shadow: 0 4px 20px rgba(220, 46, 218, 0.3);
+            animation: pulse 2s infinite; /* REVERTIDO: Animação de volta */
+            cursor: default;
+        }
+        
+        /* ADICIONADO: Container para o texto do cupom */
+        .banner-texto-cupom {
+            font-weight: 600;
+        }
+
+        .banner-texto-cupom strong {
+            font-weight: 800;
+        }
+
+        /* ADICIONADO: Estilo para o botão de copiar */
+        .btn-copiar {
+            background: rgba(255, 255, 255, 0.3); /* Fundo branco semi-transparente */
+            color: #ffffff; /* CORRIGIDO: Trocado de preto para branco */
+            border: none;
+            padding: 0.5rem; /* Botão pequeno */
+            border-radius: 0.5rem; /* 8px */
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex; 
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0; /* Impede que o botão encolha */
+        }
+        
+        .btn-copiar:hover {
+            background: rgba(255, 255, 255, 0.6); /* Mais claro no hover */
+            transform: scale(1.1);
+        }
+        
+        .btn-copiar:active {
+            transform: scale(0.95);
+        }
+        
+        /* Classe de feedback visual */
+        .btn-copiar.copiado {
+            background: var(--cor-whatsapp); /* Verde sucesso */
+            color: white; /* Ícone branco no sucesso */
+        }
+
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 4px 20px rgba(220, 46, 218, 0.3);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 8px 30px rgba(242, 234, 34, 0.4);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 4px 20px rgba(220, 46, 218, 0.3);
+            }
+        }
+
+        /* --- Cabeçalho (Logo, Título, Descrição) --- */
+        .cabecalho {
+            margin-bottom: 2rem;
+        }
+
+        .logo-container {
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            overflow: hidden; /* Mantém o overflow hidden para a imagem */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            
+            /* --- NOVA TÉCNICA PARA BORDA DEGRADÊ REDONDA --- */
+            /* 1. Cria uma borda transparente de 2px (fina) */
+            border: 2px solid transparent;
+            
+            /* 2. Define dois fundos: */
+            /* O primeiro (branco) ficará na "área de padding" (dentro da borda) */
+            /* O segundo (degradê) ficará na "área da borda" (atrás do branco) */
+            /* Isso força o degradê a respeitar o border-radius */
+            background: 
+                linear-gradient(var(--cor-fundo), var(--cor-fundo)) padding-box,
+                linear-gradient(45deg, var(--cor-primaria), var(--cor-secundaria)) border-box;
+            
+            /* background-color: #fff; */ /* REMOVIDO: Agora é controlado pelo linear-gradient acima */
+            
+            /* 3. Transições */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.5s ease;
+        }
+
+        .logo-container:hover {
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 8px 30px rgba(220, 46, 218, 0.4);
+            
+            /* Efeito no hover: Inverte o gradiente, mantendo a técnica */
+            background: 
+                linear-gradient(var(--cor-fundo), var(--cor-fundo)) padding-box,
+                linear-gradient(90deg, var(--cor-secundaria), var(--cor-primaria)) border-box;
+            
+            /* border-image: linear-gradient(90deg, var(--cor-secundaria), var(--cor-primaria)) 1; */ /* REMOVIDO */
+        }
+
+        .logo-real {
             width: 100%;
             height: 100%;
-            overflow: hidden;
-            pointer-events: none; /* Garante que não interfira com os cliques */
-            z-index: -1; /* Coloca os efeitos atrás de todo o conteúdo */
-        }
-
-        .shape {
-            position: absolute;
-            opacity: 0.1; /* Reduzida a opacidade para mais sutileza */
-            background: linear-gradient(45deg, var(--pink), var(--yellow));
-            animation: float 20s ease-in-out infinite;
-        }
-
-        .shape1 {
-            width: 150px;
-            height: 150px;
-            top: 10%;
-            left: 5%;
-            border-radius: 50%;
-            animation-duration: 25s;
-        }
-
-        .shape2 {
-            width: 80px;
-            height: 80px;
-            top: 75%;
-            left: 15%;
-            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-            animation-duration: 18s;
-            animation-direction: reverse;
-        }
-
-        .shape3 {
-            width: 120px;
-            height: 120px;
-            top: 20%;
-            right: 5%;
-            border-radius: 50%;
-            animation-duration: 22s;
-        }
-
-        .shape4 {
-            width: 60px;
-            height: 60px;
-            top: 80%;
-            right: 10%;
-            border-radius: 30% 70% 40% 60% / 50% 40% 60% 50%;
-            animation-duration: 30s;
-            animation-direction: reverse;
-        }
-        
-        @keyframes float {
-            0% {
-                transform: translateY(0px) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-30px) rotate(180deg) scale(1.1);
-            }
-            100% {
-                transform: translateY(0px) rotate(360deg);
-            }
-        }
-        /* --- FIM DOS EFEITOS DE FUNDO --- */
-
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            position: relative;
-            z-index: 1; /* Garante que o conteúdo principal fique na frente */
-        }
-
-        /* Header */
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        /* Estilo da Logo */
-        .logo-image {
-            max-width: 200px; /* Aumentado em ~10% (de 180px) */
-            height: auto;
-            margin-bottom: 20px;
-        }
-
-        .company-name {
-            font-size: 2.8rem; /* Levemente reduzido para harmonia com a logo maior */
-            font-weight: 700;
-            color: var(--pink);
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-            background: linear-gradient(45deg, var(--pink), #e854ea);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .company-subtitle {
-            font-size: 1.25rem; /* Levemente aumentado para clareza */
-            font-weight: 600;
-            color: var(--dark-gray);
-            opacity: 0.85;
-        }
-
-        /* Seção de Introdução */
-        .intro-section {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .description {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            border: 2px solid transparent;
-            background-clip: padding-box;
-            position: relative;
-        }
-
-        .description::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: 20px;
-            padding: 2px;
-            background: linear-gradient(45deg, var(--pink), var(--yellow));
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: exclude;
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask-composite: exclude;
-        }
-        
-        /* --- NOVO ESTILO PARA A LISTA DE VANTAGENS --- */
-        .description-title {
-            color: var(--pink);
-            font-weight: 700;
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-        }
-
-        .features-list {
-            list-style: none;
-            padding: 0;
-            text-align: left;
-        }
-
-        .features-list li {
-            display: flex;
-            align-items: center;
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .features-list li:last-child {
-            margin-bottom: 0;
-        }
-
-        .features-list .icon {
-            font-size: 1.5rem;
-            margin-right: 15px;
-            width: 30px; /* Alinhamento dos ícones */
-            text-align: center;
-        }
-        /* --- FIM DO NOVO ESTILO --- */
-
-
-        /* Seção de Botões */
-        .actions-section {
-            margin-bottom: 50px;
-        }
-
-        .buttons-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .action-button {
-            display: flex;
-            align-items: center;
-            padding: 20px 25px; /* Ajustado o padding */
-            background: var(--white);
-            border-radius: 20px;
-            text-decoration: none;
-            color: var(--dark-gray);
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .action-button:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .button-icon {
-            font-size: 2.2rem; /* Ajustado para melhor alinhamento */
-            margin-right: 20px;
-            min-width: 50px;
-            text-align: center;
-        }
-
-        .button-content {
-            text-align: left;
-        }
-
-        .button-content h3 {
-            font-size: 1.32rem; /* Aumentado em 10% */
-            font-weight: 700;
-            margin-bottom: 5px;
-            color: var(--pink);
-        }
-
-        .button-content p {
-            font-size: 1.1rem; /* Aumentado em 10% */
-            font-weight: 400; /* Reduzido para contraste com o título */
-            color: var(--dark-gray);
-            opacity: 0.8;
-        }
-
-        .address p {
-            margin-bottom: 3px;
-            font-size: 0.9rem;
-        }
-
-        /* Botões específicos com cores */
-        .catalog-button {
-            background: linear-gradient(135deg, var(--pink), #e854ea);
-            color: var(--white);
-            animation: pulse-button 2.5s infinite ease-in-out;
-        }
-
-        .catalog-button .button-content h3,
-        .catalog-button .button-content p {
-            color: var(--white);
-        }
-
-        .custom-button {
-            background: linear-gradient(135deg, var(--yellow), #f5ed4a);
-            color: var(--dark-gray);
-            animation: pulse-button 2.5s infinite ease-in-out;
-            animation-delay: 0.5s; /* Delay para dessincronizar */
-        }
-
-        .custom-button .button-content h3 {
-            color: var(--dark-gray);
-        }
-
-        .vip-button {
-            background: linear-gradient(135deg, var(--pink), var(--yellow));
-            color: var(--white);
-        }
-
-        .vip-button .button-content h3,
-        .vip-button .button-content p {
-            color: var(--white);
-        }
-        
-        /* Animação de pulsar para os botões de destaque */
-        @keyframes pulse-button {
-            0% {
-                transform: scale(1);
-                box-shadow: var(--shadow);
-            }
-            50% {
-                transform: scale(1.03);
-                box-shadow: var(--shadow-hover);
-            }
-            100% {
-                transform: scale(1);
-                box-shadow: var(--shadow);
-            }
-        }
-
-        /* --- SEÇÃO DEPOIMENTOS --- */
-        .testimonials-section {
-            margin-bottom: 50px;
-        }
-
-        .testimonials-section h2 {
-            font-size: 2rem;
-            color: var(--pink);
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .testimonial-card {
-            background: var(--white);
-            padding: 25px;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        .testimonial-header {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 15px;
-        }
-        
-        .stars {
-            font-size: 1.2rem;
-            color: #ffc107; /* Cor de estrela */
-            margin-bottom: 5px;
-        }
-
-        .testimonial-author {
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        .testimonial-body p {
-            margin-bottom: 15px;
-            word-wrap: break-word; /* Garante que o texto quebre a linha */
-        }
-
-        .testimonial-images {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-        }
-
-        .testimonial-img {
-            width: 80px;
-            height: 80px;
-            border-radius: 10px;
             object-fit: cover;
         }
 
-        .testimonial-footer {
-            font-size: 0.9rem;
-            color: var(--dark-gray);
-            opacity: 0.7;
-            font-weight: 600;
-        }
-
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 30px 0;
-            color: var(--dark-gray);
-            opacity: 0.7;
-            font-weight: 600;
+        .titulo-principal {
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(45deg, var(--cor-secundaria), var(--cor-primaria));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            /* Animação Shimmer REMOVIDA para performance */
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 0; /* ATUALIZADO: H1 será escondido */
         }
         
-        /* Animação de Rolagem */
-        .reveal {
+        /* Efeito Shimmer (Brilho) REMOVIDO */
+
+        /* ATUALIZADO: De <p> para <h2> para melhor semântica visual */
+        .sub-boasvindas {
+            font-size: 1.25rem; /* Aumentado para ser o título visual */
+            font-weight: 700;
+            color: var(--cor-primaria);
+            margin-bottom: 1rem; /* Espaçamento ajustado */
+            margin-top: 0.25rem; /* Pequeno espaço do logo */
+        }
+
+        .texto-apresentacao {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--cor-texto-secundario);
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        /* --- Lista de Links (Botões) --- */
+        .lista-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem; /* Espaçamento entre os botões */
+            margin-top: 0; /* CORRIGIDO: Remove margem, pois o banner já espaça */
+        }
+
+        /* Estilo Base dos Botões */
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.1rem;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 9999px; /* ADICIONADO: Formato de pílula */
+            position: relative; /* Para o ícone */
+            overflow: hidden; /* Para o ripple (removido) */
+        }
+
+        /* Estilo Base do Ícone do Botão (AGORA PARA SVG) */
+        .btn svg {
+            margin-right: 0.75rem;
+            transition: transform 0.3s ease;
+            /* Definindo tamanho e estilo dos SVGs */
+            width: 1.25em;
+            height: 1.25em;
+            stroke-width: 2;
+        }
+
+        /* Animação de Hover Base */
+        .btn:hover {
+            transform: translateY(-3px) scale(1.02);
+        }
+
+        .btn:hover svg {
+            transform: scale(1.2) rotate(-5deg);
+        }
+
+        /* --- Estilo Botão 1: Primário (CATÁLOGO ATACADO) --- */
+        .btn-primario {
+            background-color: var(--cor-primaria);
+            color: var(--cor-fundo);
+            border: 2px solid var(--cor-primaria);
+        }
+
+        .btn-primario:hover {
+            background-color: var(--cor-secundaria);
+            border-color: var(--cor-secundaria);
+            color: var(--cor-texto-principal);
+            box-shadow: 0 8px 25px rgba(242, 234, 34, 0.4);
+        }
+
+        /* --- Estilo Botão 2: Especial (MAIS VENDIDOS) --- */
+        /* ATUALIZADO: Revertido para secundário para hierarquia clara */
+        .btn-especial {
+            background-color: transparent;
+            border: 2px solid var(--cor-primaria);
+            color: var(--cor-primaria);
+        }
+
+        .btn-especial:hover {
+            background-color: var(--cor-primaria);
+            color: var(--cor-fundo);
+            box-shadow: 0 8px 25px rgba(220, 46, 218, 0.4);
+        }
+        
+        /* Badge "HOT" */
+        .badge {
+            position: absolute;
+            top: 50%;
+            right: 1.25rem;
+            transform: translateY(-50%) rotate(10deg);
+            background: var(--cor-secundaria);
+            color: var(--cor-texto-principal);
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 6px;
+            /* Animação hot-pulse REMOVIDA */
+        }
+
+        /* REMOVIDO: @keyframes hot-pulse */
+
+        /* --- Estilo Botão 3, 5, 6: Secundário (Contorno) --- */
+        .btn-secundario {
+            background-color: transparent;
+            border: 2px solid var(--cor-primaria);
+            color: var(--cor-primaria);
+        }
+
+        .btn-secundario:hover {
+            background-color: var(--cor-primaria);
+            color: var(--cor-fundo);
+            box-shadow: 0 8px 25px rgba(220, 46, 218, 0.4);
+        }
+
+        /* --- Estilo Botão 4: WhatsApp --- */
+        /* ATUALIZADO: Estilo vazado para hierarquia */
+        .btn-whatsapp {
+            background-color: transparent;
+            color: var(--cor-whatsapp);
+            border: 2px solid var(--cor-whatsapp);
+        }
+
+        .btn-whatsapp:hover {
+            background-color: var(--cor-whatsapp);
+            border-color: var(--cor-whatsapp);
+            color: var(--cor-fundo);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        /* --- Efeito Ripple (Onda) ao Clicar (REMOVIDO) --- */
+        
+        /* --- Rodapé --- */
+        .rodape {
+            text-align: center;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            width: 100%;
+            max-width: 600px;
+            padding: 0 1rem;
+            font-size: 0.85rem;
+            color: var(--cor-texto-secundario);
             opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease-out, transform 0.6s ease-out;
+            animation: fadeIn 1s 0.8s ease-out forwards;
         }
 
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .endereco {
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
         }
 
+        .copyright {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+        
+        /* ADICIONADO: Espaçamento para a linha do CNPJ */
+        .copyright + .copyright {
+            margin-top: 0.25rem;
+        }
+        
+        /* --- Responsividade (Desktop) --- */
+        @media (min-width: 640px) {
+            body {
+                padding: 3rem 1rem;
+            }
 
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .container {
-                padding: 15px;
+            .container-principal {
+                padding: 1.5rem 2.5rem;
             }
-            .company-name {
-                font-size: 2.5rem;
+
+            .titulo-principal {
+                font-size: 2.75rem;
             }
-            .company-subtitle {
+
+            .texto-apresentacao {
                 font-size: 1.1rem;
             }
-            .action-button {
-                padding: 20px;
-            }
-            .button-icon {
-                font-size: 2rem;
-                margin-right: 15px;
-                min-width: 50px;
-            }
-            .button-content h3 {
-                font-size: 1.1rem;
-            }
-            .button-content p {
-                font-size: 0.9rem;
-            }
-        }
 
-        @media (max-width: 480px) {
-            .company-name {
-                font-size: 2.2rem;
-            }
-            .description {
-                padding: 20px;
-            }
-            .action-button {
-                padding: 15px;
-                flex-direction: column;
-                text-align: center;
-            }
-            .button-icon {
-                margin-right: 0;
-                margin-bottom: 10px;
-            }
-            .button-content {
-                text-align: center;
-            }
-            .shape1, .shape3 {
-                width: 80px;
-                height: 80px;
-            }
-            .shape2, .shape4 {
-                width: 40px;
-                height: 40px;
+            .banner-cupom {
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
-
-    <div class="background-effects">
-        <div class="shape shape1"></div>
-        <div class="shape shape2"></div>
-        <div class="shape shape3"></div>
-        <div class="shape shape4"></div>
-    </div>
-
-    <div class="container">
-        <!-- Header com Nome da Empresa -->
-        <header class="header reveal">
-            <img src="https://i.ibb.co/nsRHH5Hp/logoo-1.png" alt="Logo CJOTA Rasteirinhas" class="logo-image">
-            <h1 class="company-name">Bem-vindo, Revendedor!</h1>
-            <p class="company-subtitle">Compre direto da fábrica</p>
+    
+    <!-- Container Principal --><main class="container-principal">
+        
+        <!-- 1. Banner de Cupom (MOVIDO) --><!-- 
+            <div class="banner-cupom">
+                🎁 Primeira Compra? Use o cupom: <strong>PRIMEIRACOMPRA</strong>
+            </div>
+        --><!-- 2. Cabeçalho (Logo, Título, Descrição) --><header class="cabecalho">
+            <div class="logo-container">
+                <img src="https://i.ibb.co/kRKzZCt/logoo-1.png" alt="Logo Revendedora" class="logo-real" onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f0f0f0';">
+            </div>
+            
+            <!-- ATUALIZADO: H1 otimizado para SEO (escondido visualmente) --><h1 class="titulo-principal sr-only">
+                Cjota Rasteirinhas
+            </h1>
+            
+            <!-- ATUALIZADO: Agora é um <h2> (título visual) --><h2 class="sub-boasvindas">
+                BEM-VINDA REVENDEDORA!
+            </h2>
+            
+            <p class="texto-apresentacao">
+                Somos fabricantes! Vendemos no atacado com pedido mínimo de 5 pares. Enviamos para todo o Brasil.
+            </p>
         </header>
 
-        <!-- Descrição Institucional -->
-        <section class="intro-section reveal">
-            <div class="description">
-                <h3 class="description-title">Somos fabricantes especialistas em rasteirinhas!</h3>
-                <ul class="features-list">
-                    <li><span class="icon">🚚</span> Enviamos para todo o Brasil.</li>
-                    <li><span class="icon">📦</span> Pedido mínimo de 5 peças.</li>
-                    <li><span class="icon">✨</span> Trabalhamos com Private Label.</li>
-                    <li><span class="icon">📋</span> Personalize com sua marca (mín. 2 grades fechadas).</li>
-                </ul>
+        <!-- 2. Banner de Cupom (NOVO FORMATO) --><div class="banner-cupom">
+            <div class="banner-texto-cupom">
+                <!-- ATUALIZADO: Texto mais claro -->🎁 Cupom 1ª Compra: <strong id="cupom-texto">PRIMEIRACOMPRA</strong>
             </div>
-        </section>
+            <button class="btn-copiar" id="btn-copiar" title="Copiar Cupom">
+                <!-- ÍCONE ATUALIZADO: SVG Embutido --><span id="icone-copiar-span">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </span>
+            </button>
+        </div>
 
-        <!-- Botões de Ação -->
-        <section class="actions-section">
-            <div class="buttons-grid">
-                <!-- Ver Catálogo e Comprar -->
-                <a href="https://cjotarasteirinhas.com.br/" class="action-button catalog-button reveal" target="_blank">
-                    <div class="button-icon">🛍️</div>
-                    <div class="button-content">
-                        <h3>Ver Catálogo e Comprar</h3>
-                        <p>Confira nossa coleção completa</p>
-                    </div>
-                </a>
+        <!-- 3. Navegação (Lista de Botões) --><nav>
+            <ul class="lista-links">
+                
+                <!-- Botão 1: CATÁLOGO ATACADO (Primário) --><li>
+                    <!-- ATUALIZADO: Cupom embutido no link --><a href="https://cjotarasteirinhas.com.br/?cupom=PRIMEIRACOMPRA" target="_blank" rel="noopener" class="btn btn-primario">
+                        <!-- ÍCONE ATUALIZADO: SVG Embutido --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                        CATÁLOGO ATACADO
+                    </a>
+                </li>
 
-                <!-- Personalizar com Logomarca -->
-                <a href="https://wa.me/5562981480687?text=Ol%C3%A1!%20Quero%20personalizar%20com%20minha%20logomarca" class="action-button custom-button reveal" target="_blank">
-                    <div class="button-icon">👑</div>
-                    <div class="button-content">
-                        <h3>Personalizar com Minha Logomarca</h3>
-                        <p>Private Label - Sua marca nos nossos produtos</p>
-                    </div>
-                </a>
+                <!-- Botão 2: MAIS VENDIDOS (Especial) --><li>
+                    <!-- ATUALIZADO: Cupom embutido no link e classe de botão --><a href="https://cjotarasteirinhas.com.br/c/atacado/categoria/305853/62981480687?cupom=PRIMEIRACOMPRA" target="_blank" rel="noopener" class="btn btn-secundario"> <!-- CLASSE ATUALIZADA --><!-- ÍCONE ATUALIZADO: SVG Embutido --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        MAIS VENDIDOS
+                        <span class="badge">🔥 HOT</span> <!-- Animação removida --></a>
+                </li>
+                
+                <!-- Botão 3: MODELOS R$25,00 (Secundário) --><li>
+                    <!-- ATUALIZADO: Cupom embutido no link --><a href="https://cjotarasteirinhas.com.br/c/atacado/categoria/336926/62981480687?cupom=PRIMEIRACOMPRA" target="_blank" rel="noopener" class="btn btn-secundario">
+                        <!-- ÍCONE ATUALIZADO: SVG Embutido --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                        MODELOS R$25,00
+                    </a>
+                </li>
 
-                <!-- Fale Conosco -->
-                <a href="https://wa.me/5562981480687" class="action-button reveal" target="_blank">
-                    <div class="button-icon">💬</div>
-                    <div class="button-content">
-                        <h3>Fale Conosco</h3>
-                        <p>Tire suas dúvidas pelo WhatsApp</p>
-                    </div>
-                </a>
+                <!-- Botão 4: FALE CONOSCO (WhatsApp) --><li>
+                    <!-- ATUALIZADO: Classe de botão --><a href="https://wa.me/+5562981480687?text=Ol%C3%A1%2C%20vim%20do%20link%20da%20Bio!" target="_blank" rel="noopener" class="btn btn-whatsapp"> <!-- CLASSE ATUALIZADA --><!-- ÍCONE ATUALIZADO: SVG Embutido (ícone preenchido para branding) --><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.0-6.556 5.333-11.891 11.893-11.891 3.181.0 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.0 6.557-5.335 11.89-11.891 11.89-1.996 0-3.903-.52-5.607-1.476l-6.163 1.688a.709.709 0 0 1-.84-.829zm3.413-5.039s.422.329 1.523.822c1.482.615 3.064.935 4.63.935 5.47 0 9.94-4.47 9.94-9.94s-4.47-9.94-9.94-9.94c-5.47 0-9.94 4.47-9.94 9.94 0 2.006.6 3.89 1.646 5.518l.173.284-1.127 4.111 4.226-1.141.287.175z m5.023-7.203c-.27-.135-.99-.49-1.146-.545s-.39-.081-.546.081c-.156.162-.546.545-.67.67-.124.124-.248.135-.47.054s-1.313-.483-2.498-1.523c-.929-.814-1.55-1.83-1.732-2.152s-.036-.248.081-.382c.106-.124.248-.3.382-.447s.162-.248.248-.41.04-.329-.04-.447c-.081-.124-.546-1.313-.67-1.804s-.248-.41-.382-.41h-.382s-.329-.04-.546.248c-.217.29-.814.814-.814 1.958s.814 2.28 1.05 2.527c.236.248 1.673 2.527 4.07 3.589s2.4.767 2.761.696c.546-.106 1.707-.702 1.958-1.389s.248-1.264.162-1.389c-.081-.124-.248-.124-.47-.248z"></path></svg>
+                        FALE CONOSCO
+                    </a>
+                </li>
+                
+                <!-- Botão 5: CATÁLOGO DIVULGAÇÃO (Secundário) --><li>
+                    <a href="https://drive.google.com/drive/folders/1MCdLmRZdukfuedik3baPYFnkEOMki1Qe?usp=drive_link" target="_blank" rel="noopener" class="btn btn-secundario">
+                        <!-- ÍCONE ATUALIZADO: SVG Embutido --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                        CATÁLOGO DIVULGAÇÃO
+                    </a>
+                </li>
 
-                <!-- Loja Física -->
-                <a href="https://maps.app.goo.gl/wf5vC9jTiAto6aRV7" class="action-button reveal" target="_blank">
-                    <div class="button-icon">📍</div>
-                    <div class="button-content">
-                        <h3>Loja Física</h3>
-                        <div class="address">
-                            <p><strong>Shopping Centro Oeste Outlet</strong></p>
-                            <p>Corredor Aracaju - loja 665</p>
-                            <p>Avenida Independência, 3334–3512</p>
-                            <p>Setor Central, Goiânia - GO</p>
-                        </div>
-                    </div>
-                </a>
+                <!-- Botão 6: ENDEREÇO LOJA FÍSICA (Secundário) --><li>
+                    <a href="https://maps.app.goo.gl/nnQ4m6586yLRTDbj9" target="_blank" rel="noopener" class="btn btn-secundario">
+                        <!-- ÍCONE ATUALIZADO: SVG Embutido --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        ENDEREÇO LOJA FÍSICA
+                    </a>
+                </li>
+            </ul>
+        </nav>
 
-                <!-- Grupo VIP -->
-                <a href="https://chat.whatsapp.com/GDXFA5sLna96AgtBh4Svlg?mode=ac_t" class="action-button vip-button reveal" target="_blank">
-                    <div class="button-icon">⭐</div>
-                    <div class="button-content">
-                        <h3>Grupo VIP</h3>
-                        <p>Promoções & Lançamentos exclusivos</p>
-                    </div>
-                </a>
-            </div>
-        </section>
+    </main>
+    
+    <!-- Rodapé com Endereço e Copyright --><footer class="rodape">
+        <p class="endereco">
+            📍 Corredor Aracaju - Shopping Centro Oeste Outlet, Loja 665, St. Central, Goiânia - GO
+        </p>
+        <p class="copyright">
+            <!-- ATUALIZADO: "Sua Empresa" para "Cjota Rasteirinhas" -->&copy; <span id="currentYear"></span> Cjota Rasteirinhas. Todos os direitos reservados.
+        </p>
+        <!-- ADICIONADO: Linha do CNPJ --><p class="copyright">
+            CNPJ: 45.377.284/0001-78
+        </p>
+    </footer>
+    
+    <!-- JavaScript (Vanilla) --><script>
+        // Espera o DOM (toda a página) estar completamente carregado
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // 1. Ativa os ícones da biblioteca Lucide (REMOVIDO)
+            // Font Awesome não precisa de script de inicialização.
 
-        <!-- Seção de Depoimentos -->
-        <section class="testimonials-section reveal">
-            <h2>O que nossas clientes dizem</h2>
+            // 2. Define o ano atual no rodapé
+            const currentYearSpan = document.getElementById('currentYear');
+            if (currentYearSpan) {
+                currentYearSpan.textContent = new Date().getFullYear();
+            }
 
-            <!-- Depoimento 1 (Novo) -->
-            <article class="testimonial-card">
-                <header class="testimonial-header">
-                    <div class="stars">★★★★★</div>
-                    <div class="testimonial-author">PATRICIA (31) 9...-6995</div>
-                </header>
-                <div class="testimonial-body">
-                    <p>Estou amando, podem comprar sem medo meninas chegou hoje meu terceiro pedido. Ah e é de ótima qualidade.. obg Caroline</p>
-                    <div class="testimonial-images">
-                        <img src="https://i.ibb.co/N23WNkfm/Captura-de-tela-2025-08-05-142127.png" alt="Foto do produto enviado para Patricia" class="testimonial-img">
-                        <img src="https://i.ibb.co/kVBxh85d/Captura-de-tela-2025-08-05-142200.png" alt="Foto do produto enviado para Patricia" class="testimonial-img">
-                        <img src="https://i.ibb.co/5XYdvPN3/Captura-de-tela-2025-08-05-142238.png" alt="Foto do produto enviado para Patricia" class="testimonial-img">
-                    </div>
-                </div>
-                <footer class="testimonial-footer">
-                    <span class="location">📍 Araçaí-MG, em 23/12/2024</span>
-                </footer>
-            </article>
+            // 3. Efeito Ripple (Onda) nos botões (REMOVIDO)
+            
+            // 4. ADICIONADO: Lógica para Copiar Cupom
+            // ATUALIZADO: Para funcionar com SVGs
+            const btnCopiar = document.getElementById('btn-copiar');
+            const textoCupomElemento = document.getElementById('cupom-texto');
+            const iconeCopiarSpan = document.getElementById('icone-copiar-span');
+            
+            // Strings dos ícones SVG
+            const svgIconCopy = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
+            const svgIconCheck = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+            
+            if (btnCopiar && textoCupomElemento && iconeCopiarSpan) {
+                
+                // Define o ícone inicial
+                iconeCopiarSpan.innerHTML = svgIconCopy;
 
-            <!-- Depoimento 2 -->
-            <article class="testimonial-card">
-                <header class="testimonial-header">
-                    <div class="stars">★★★★★</div>
-                    <div class="testimonial-author">Karine (94) 9...-4690</div>
-                </header>
-                <div class="testimonial-body">
-                    <p>Passando pra agradecer vocês da empresa cj rasteirinhas, que fazem parte de nossas jornada só tenho agradecer por está sempre com melhor empresa de rasteirinha 😍 atendimento nota 💯 é também pelo carinho que tem com agente todos meus Recebidos de vocês são de excelência qualidade conforto, design perfeito em cada detalhes. Nada a reclamar só agradecer Que Deus continue abençoando vocês e sua empresa equipe 🙌🙏❤️😊</p>
-                </div>
-                <footer class="testimonial-footer">
-                    <span class="location">📍 Marabá-PA, em 04/07/2025</span>
-                </footer>
-            </article>
+                btnCopiar.addEventListener('click', function(e) {
+                    e.stopPropagation(); 
+                    
+                    const cupom = textoCupomElemento.innerText;
 
-            <!-- Depoimento 3 -->
-            <article class="testimonial-card">
-                <header class="testimonial-header">
-                    <div class="stars">★★★★★</div>
-                    <div class="testimonial-author">Rayane (31) 9...-7725</div>
-                </header>
-                <div class="testimonial-body">
-                    <p>Ótimas sandálias e lindas demais o maior desafio é vender todas ao invés de ficar com elas 😁 Amei, chegou tudo direitinho, certinho e bem embalado ❤️ Obrigada equipe vocês arrasaram</p>
-                </div>
-                <footer class="testimonial-footer">
-                    <span class="location">📍 Matozinhos-MG, em 25/03/2025</span>
-                </footer>
-            </article>
+                    // Cria um textarea temporário para usar o execCommand
+                    // (Necessário para funcionar em todos os navegadores/iframes)
+                    const tempTextArea = document.createElement('textarea');
+                    tempTextArea.value = cupom;
+                    document.body.appendChild(tempTextArea);
+                    
+                    // Esconde o textarea
+                    tempTextArea.style.position = 'absolute';
+                    tempTextArea.style.left = '-9999px';
+                    
+                    tempTextArea.select();
+                    tempTextArea.setSelectionRange(0, 99999); // Para mobile
 
-            <!-- Depoimento 4 -->
-            <article class="testimonial-card">
-                <header class="testimonial-header">
-                    <div class="stars">★★★★★</div>
-                    <div class="testimonial-author">Edineusa (61) 9...-4851</div>
-                </header>
-                <div class="testimonial-body">
-                    <p>Amei as rasteirinhas, o material é bom a entrega foi super rápida</p>
-                    <div class="testimonial-images">
-                        <img src="https://i.ibb.co/8LJ62CXd/Captura-de-tela-2025-08-05-141717.png" alt="Foto do produto enviado para Edineusa" class="testimonial-img">
-                    </div>
-                </div>
-                <footer class="testimonial-footer">
-                    <span class="location">📍 Brasília-DF, em 26/03/2025</span>
-                </footer>
-            </article>
+                    try {
+                        document.execCommand('copy');
+                        
+                        // Feedback visual de sucesso
+                        iconeCopiarSpan.innerHTML = svgIconCheck; // Muda ícone para "check"
+                        btnCopiar.classList.add('copiado'); // Adiciona classe verde
 
-        </section>
+                        // Volta ao normal depois de 2 segundos
+                        setTimeout(() => {
+                            iconeCopiarSpan.innerHTML = svgIconCopy; // Volta ícone original
+                            btnCopiar.classList.remove('copiado');
+                        }, 2000);
 
-        <!-- Footer -->
-        <footer class="footer reveal">
-            <p>&copy; 2025 CJOTA Rasteirinhas - Todos os direitos reservados</p>
-        </footer>
-    </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const revealElements = document.querySelectorAll('.reveal');
-
-            // Adiciona um delay de animação para cada elemento
-            revealElements.forEach((el, index) => {
-                el.style.transitionDelay = `${index * 0.1}s`;
-            });
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        // Opcional: remove o observer depois que a animação acontece
-                        // observer.unobserve(entry.target);
+                    } catch (err) {
+                        console.error('Falha ao copiar o cupom:', err);
+                        // Você pode adicionar um feedback de erro aqui se quiser
                     }
-                });
-            }, {
-                threshold: 0.1 // A animação começa quando 10% do elemento está visível
-            });
 
-            revealElements.forEach(el => {
-                observer.observe(el);
-            });
+                    // Remove o textarea temporário
+                    document.body.removeChild(tempTextArea);
+                });
+            }
+
+
+            console.log("Página 'Link na Bio' carregada com sucesso!");
         });
     </script>
+
 </body>
 </html>
