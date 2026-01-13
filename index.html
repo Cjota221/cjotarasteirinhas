@@ -2,589 +2,636 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bem-vinda Revendedora</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CJOTA Rasteirinhas | Hub Oficial</title>
     
-    <!-- Meta Tags para SEO e Compartilhamento --><meta name="description" content="Somos fabricantes! Vendemos no atacado com pedido mínimo de 5 pares. Enviamos para todo o Brasil.">
-    <!-- Open Graph (para mídias sociais) --><meta property="og:title" content="Bem-vinda Revendedora">
-    <meta property="og:description" content="Somos fabricantes! Vendemos no atacado com pedido mínimo de 5 pares.">
+    <!-- Meta Tags -->
+    <meta name="description" content="CJOTA Rasteirinhas - Fábrica de calçados femininos. Atacado, Personalização e Franquias.">
     <meta property="og:image" content="https://i.ibb.co/kRKzZCt/logoo-1.png">
-    <meta property="og:type" content="website">
 
-    <!-- Favicon (Emoji como Data URI) --><link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💖</text></svg>">
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💖</text></svg>">
 
-    <!-- Importa a fonte "Inter" do Google Fonts --><link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Fonte Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- REMOVIDO: Biblioteca de Ícones Font Awesome (substituída por SVGs embutidos) --><style>
-        /* --- Configurações Globais e Variáveis --- */
+    <style>
+        /* --- Configurações Globais --- */
         :root {
             --cor-primaria: #DC2EDA;
             --cor-secundaria: #f2ea22;
             --cor-fundo: #ffffff;
-            --cor-texto-principal: #1b1b1b;
-            --cor-texto-secundario: #555555;
-            --cor-whatsapp: #25D366;
-            --cor-whatsapp-hover: #1EAF56;
+            --cor-texto: #1b1b1b;
+            --cor-texto-suave: #666666;
+            --cor-bg-cinza: #f8f9fa;
+            --sombra-suave: 0 4px 20px rgba(0,0,0,0.05);
+            --radius-card: 16px;
+            --radius-btn: 50px;
         }
 
-        /* --- Reset Básico e Configuração da Fonte --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html, body {
-            height: 100%;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--cor-fundo);
-            color: var(--cor-texto-principal);
+            background-color: #f0f2f5; /* Fundo geral da página */
+            color: var(--cor-texto);
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start; /* Alinha ao topo */
+            justify-content: center;
             min-height: 100vh;
-            padding: 1rem; /* ATUALIZADO: De 2rem 1rem para 1rem (mais espaço lateral) */
-            opacity: 0;
-            animation: fadeIn 0.5s 0.1s ease-out forwards;
         }
-        
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-        
-        /* ADICIONADO: Classe para esconder texto (para SEO) */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border-width: 0;
-        }
-        
-        /* --- Container Principal --- */
-        .container-principal {
+
+        /* --- Container App Mobile --- */
+        #app-container {
             width: 100%;
-            max-width: 600px; /* Largura máxima do conteúdo */
-            margin: 0 auto;
-            text-align: center;
-            padding: 1rem; /* ATUALIZADO: De 1.5rem para 1rem (mais espaço lateral) */
-            border-radius: 1.5rem; /* 24px */
-            /* Removida a sombra e borda do container principal para um visual mais limpo */
-        }
-
-        /* --- Banner de Cupom (REVERTIDO AO ESTILO ORIGINAL + BOTÃO) --- */
-        .banner-cupom {
-            display: flex; /* ADICIONADO: Para alinhar texto e botão */
-            align-items: center;
-            justify-content: space-between; /* ADICIONADO: Espaça o texto e o botão */
-            gap: 0.75rem; /* ADICIONADO: Espaço entre texto e botão */
-            
-            padding: 1rem 1.25rem;
-            border-radius: 1.25rem; /* 20px */
-            background: linear-gradient(45deg, var(--cor-primaria), var(--cor-secundaria));
-            color: #ffffff; /* CORRIGIDO: Trocado de preto para branco */
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* ADICIONADO: Sombra para legibilidade */
-            font-weight: 700;
-            font-size: 0.95rem;
-            text-align: left; /* O flex cuida do alinhamento */
-            margin-top: 2rem;
-            margin-bottom: 2rem; /* Mantém o espaçamento corrigido */
-            box-shadow: 0 4px 20px rgba(220, 46, 218, 0.3);
-            animation: pulse 2s infinite; /* REVERTIDO: Animação de volta */
-            cursor: default;
-        }
-        
-        /* ADICIONADO: Container para o texto do cupom */
-        .banner-texto-cupom {
-            font-weight: 600;
-        }
-
-        .banner-texto-cupom strong {
-            font-weight: 800;
-        }
-
-        /* ADICIONADO: Estilo para o botão de copiar */
-        .btn-copiar {
-            background: rgba(255, 255, 255, 0.3); /* Fundo branco semi-transparente */
-            color: #ffffff; /* CORRIGIDO: Trocado de preto para branco */
-            border: none;
-            padding: 0.5rem; /* Botão pequeno */
-            border-radius: 0.5rem; /* 8px */
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: flex; 
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0; /* Impede que o botão encolha */
-        }
-        
-        .btn-copiar:hover {
-            background: rgba(255, 255, 255, 0.6); /* Mais claro no hover */
-            transform: scale(1.1);
-        }
-        
-        .btn-copiar:active {
-            transform: scale(0.95);
-        }
-        
-        /* Classe de feedback visual */
-        .btn-copiar.copiado {
-            background: var(--cor-whatsapp); /* Verde sucesso */
-            color: white; /* Ícone branco no sucesso */
-        }
-
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 4px 20px rgba(220, 46, 218, 0.3);
-            }
-            50% {
-                transform: scale(1.05);
-                box-shadow: 0 8px 30px rgba(242, 234, 34, 0.4);
-            }
-            100% {
-                transform: scale(1);
-                box-shadow: 0 4px 20px rgba(220, 46, 218, 0.3);
-            }
-        }
-
-        /* --- Cabeçalho (Logo, Título, Descrição) --- */
-        .cabecalho {
-            margin-bottom: 2rem;
-        }
-
-        .logo-container {
-            width: 130px;
-            height: 130px;
-            margin: 0 auto 1.5rem;
-            border-radius: 50%;
-            overflow: hidden; /* Mantém o overflow hidden para a imagem */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            
-            /* --- NOVA TÉCNICA PARA BORDA DEGRADÊ REDONDA --- */
-            /* 1. Cria uma borda transparente de 2px (fina) */
-            border: 2px solid transparent;
-            
-            /* 2. Define dois fundos: */
-            /* O primeiro (branco) ficará na "área de padding" (dentro da borda) */
-            /* O segundo (degradê) ficará na "área da borda" (atrás do branco) */
-            /* Isso força o degradê a respeitar o border-radius */
-            background: 
-                linear-gradient(var(--cor-fundo), var(--cor-fundo)) padding-box,
-                linear-gradient(45deg, var(--cor-primaria), var(--cor-secundaria)) border-box;
-            
-            /* background-color: #fff; */ /* REMOVIDO: Agora é controlado pelo linear-gradient acima */
-            
-            /* 3. Transições */
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.5s ease;
-        }
-
-        .logo-container:hover {
-            transform: scale(1.05) rotate(5deg);
-            box-shadow: 0 8px 30px rgba(220, 46, 218, 0.4);
-            
-            /* Efeito no hover: Inverte o gradiente, mantendo a técnica */
-            background: 
-                linear-gradient(var(--cor-fundo), var(--cor-fundo)) padding-box,
-                linear-gradient(90deg, var(--cor-secundaria), var(--cor-primaria)) border-box;
-            
-            /* border-image: linear-gradient(90deg, var(--cor-secundaria), var(--cor-primaria)) 1; */ /* REMOVIDO */
-        }
-
-        .logo-real {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .titulo-principal {
-            font-size: 2.25rem;
-            font-weight: 800;
-            margin-bottom: 0.75rem;
-            background: linear-gradient(45deg, var(--cor-secundaria), var(--cor-primaria));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-fill-color: transparent;
-            /* Animação Shimmer REMOVIDA para performance */
+            max-width: 480px;
+            background-color: var(--cor-fundo);
+            min-height: 100vh;
             position: relative;
-            overflow: hidden;
-            margin-bottom: 0; /* ATUALIZADO: H1 será escondido */
-        }
-        
-        /* Efeito Shimmer (Brilho) REMOVIDO */
-
-        /* ATUALIZADO: De <p> para <h2> para melhor semântica visual */
-        .sub-boasvindas {
-            font-size: 1.25rem; /* Aumentado para ser o título visual */
-            font-weight: 700;
-            color: var(--cor-primaria);
-            margin-bottom: 1rem; /* Espaçamento ajustado */
-            margin-top: 0.25rem; /* Pequeno espaço do logo */
-        }
-
-        .texto-apresentacao {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: var(--cor-texto-secundario);
-            max-width: 450px;
-            margin: 0 auto;
-        }
-
-        /* --- Lista de Links (Botões) --- */
-        .lista-links {
-            list-style: none;
-            padding: 0;
+            box-shadow: 0 0 40px rgba(0,0,0,0.1);
+            overflow-x: hidden;
             display: flex;
             flex-direction: column;
-            gap: 1.25rem; /* Espaçamento entre os botões */
-            margin-top: 0; /* CORRIGIDO: Remove margem, pois o banner já espaça */
         }
 
-        /* Estilo Base dos Botões */
-        .btn {
+        /* --- Utilitários --- */
+        .hidden { display: none !important; }
+        .text-center { text-align: center; }
+        .mb-2 { margin-bottom: 1rem; }
+        .mb-4 { margin-bottom: 2rem; }
+        
+        h1, h2, h3 { color: var(--cor-texto); line-height: 1.2; }
+        p { color: var(--cor-texto-suave); font-size: 0.95rem; line-height: 1.5; margin-bottom: 1rem; }
+
+        /* --- Header de Navegação (Páginas Internas) --- */
+        .nav-header {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #eee;
+        }
+
+        .btn-voltar {
+            background: none;
+            border: none;
+            color: var(--cor-primaria);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .page-title {
+            flex-grow: 1;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-right: 60px; /* Compensa o botão voltar para centralizar */
+        }
+
+        /* --- Sistema de Views (SPA) --- */
+        .view {
+            display: none; /* Garante que as páginas fiquem escondidas por padrão */
+            padding: 20px;
+            animation: fadeIn 0.3s ease-out;
+            padding-bottom: 40px;
+        }
+        
+        .view.active { 
+            display: block; /* Apenas a página ativa aparece */
+        }
+
+        /* Regra especial para a Home ficar flexível APENAS quando ativa */
+        #view-home.active {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- HOME --- */
+        #home-header {
+            text-align: center;
+            padding: 30px 20px 10px;
+        }
+
+        .logo-area {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            padding: 3px;
+            background: linear-gradient(45deg, var(--cor-primaria), var(--cor-secundaria));
+        }
+        .logo-img {
+            width: 100%; height: 100%; border-radius: 50%;
+            border: 3px solid white; background: white; object-fit: cover;
+        }
+
+        .home-title { font-size: 1.5rem; font-weight: 800; color: var(--cor-primaria); margin-bottom: 5px; }
+        .home-subtitle { font-size: 0.9rem; font-weight: 600; color: var(--cor-texto); margin-bottom: 10px; }
+        .home-desc { font-size: 0.85rem; color: var(--cor-texto-suave); background: var(--cor-bg-cinza); display: inline-block; padding: 5px 15px; border-radius: 20px; }
+
+        /* Grid de Cards da Home */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .menu-card {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: var(--radius-card);
+            padding: 20px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: var(--sombra-suave);
+        }
+
+        .menu-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--cor-primaria);
+            box-shadow: 0 8px 25px rgba(220, 46, 218, 0.15);
+        }
+
+        .menu-card.full-width { grid-column: span 2; flex-direction: row; text-align: left; padding: 20px; }
+        
+        .icon-box {
+            width: 45px; height: 45px;
+            background: var(--cor-bg-cinza);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--cor-primaria);
+            transition: 0.2s;
+        }
+        .menu-card:hover .icon-box { background: var(--cor-primaria); color: white; }
+        
+        .menu-card h3 { font-size: 0.9rem; font-weight: 700; margin: 0; }
+        .menu-card span { font-size: 0.75rem; color: var(--cor-texto-suave); }
+
+        /* --- Componentes Internos --- */
+        .content-box {
+            background: white;
+            border-radius: var(--radius-card);
+            padding: 20px;
+            box-shadow: var(--sombra-suave);
+            border: 1px solid #eee;
+            margin-bottom: 20px;
+        }
+
+        .feature-list { list-style: none; margin: 15px 0; }
+        .feature-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f5f5f5;
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+        .feature-list li:last-child { border-bottom: none; }
+        .feature-list svg { margin-right: 10px; color: var(--cor-primaria); width: 18px; height: 18px; }
+
+        /* Botões de Ação */
+        .btn-action {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1.1rem;
-            text-decoration: none;
-            font-weight: 700;
-            border-radius: 9999px; /* ADICIONADO: Formato de pílula */
-            position: relative; /* Para o ícone */
-            overflow: hidden; /* Para o ripple (removido) */
-        }
-
-        /* Estilo Base do Ícone do Botão (AGORA PARA SVG) */
-        .btn svg {
-            margin-right: 0.75rem;
-            transition: transform 0.3s ease;
-            /* Definindo tamanho e estilo dos SVGs */
-            width: 1.25em;
-            height: 1.25em;
-            stroke-width: 2;
-        }
-
-        /* Animação de Hover Base */
-        .btn:hover {
-            transform: translateY(-3px) scale(1.02);
-        }
-
-        .btn:hover svg {
-            transform: scale(1.2) rotate(-5deg);
-        }
-
-        /* --- Estilo Botão 1: Primário (CATÁLOGO ATACADO) --- */
-        .btn-primario {
-            background-color: var(--cor-primaria);
-            color: var(--cor-fundo);
-            border: 2px solid var(--cor-primaria);
-        }
-
-        .btn-primario:hover {
-            background-color: var(--cor-secundaria);
-            border-color: var(--cor-secundaria);
-            color: var(--cor-texto-principal);
-            box-shadow: 0 8px 25px rgba(242, 234, 34, 0.4);
-        }
-
-        /* --- Estilo Botão 2: Especial (MAIS VENDIDOS) --- */
-        /* ATUALIZADO: Revertido para secundário para hierarquia clara */
-        .btn-especial {
-            background-color: transparent;
-            border: 2px solid var(--cor-primaria);
-            color: var(--cor-primaria);
-        }
-
-        .btn-especial:hover {
-            background-color: var(--cor-primaria);
-            color: var(--cor-fundo);
-            box-shadow: 0 8px 25px rgba(220, 46, 218, 0.4);
-        }
-        
-        /* Badge "HOT" */
-        .badge {
-            position: absolute;
-            top: 50%;
-            right: 1.25rem;
-            transform: translateY(-50%) rotate(10deg);
-            background: var(--cor-secundaria);
-            color: var(--cor-texto-principal);
-            font-size: 0.75rem;
-            font-weight: 800;
-            padding: 3px 8px;
-            border-radius: 6px;
-            /* Animação hot-pulse REMOVIDA */
-        }
-
-        /* REMOVIDO: @keyframes hot-pulse */
-
-        /* --- Estilo Botão 3, 5, 6: Secundário (Contorno) --- */
-        .btn-secundario {
-            background-color: transparent;
-            border: 2px solid var(--cor-primaria);
-            color: var(--cor-primaria);
-        }
-
-        .btn-secundario:hover {
-            background-color: var(--cor-primaria);
-            color: var(--cor-fundo);
-            box-shadow: 0 8px 25px rgba(220, 46, 218, 0.4);
-        }
-
-        /* --- Estilo Botão 4: WhatsApp --- */
-        /* ATUALIZADO: Estilo vazado para hierarquia */
-        .btn-whatsapp {
-            background-color: transparent;
-            color: var(--cor-whatsapp);
-            border: 2px solid var(--cor-whatsapp);
-        }
-
-        .btn-whatsapp:hover {
-            background-color: var(--cor-whatsapp);
-            border-color: var(--cor-whatsapp);
-            color: var(--cor-fundo);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-        }
-
-        /* --- Efeito Ripple (Onda) ao Clicar (REMOVIDO) --- */
-        
-        /* --- Rodapé --- */
-        .rodape {
-            text-align: center;
-            margin-top: 3rem;
-            margin-bottom: 1.5rem;
             width: 100%;
-            max-width: 600px;
-            padding: 0 1rem;
+            padding: 16px;
+            border-radius: var(--radius-btn);
+            font-weight: 700;
+            text-decoration: none;
+            margin-bottom: 10px;
+            transition: 0.2s;
+            cursor: pointer;
+            font-size: 1rem;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: var(--cor-primaria);
+            color: white;
+            box-shadow: 0 4px 15px rgba(220, 46, 218, 0.3);
+            border: none;
+        }
+        .btn-primary:hover { transform: scale(1.02); }
+
+        .btn-outline {
+            background: white;
+            border: 1px solid var(--cor-primaria);
+            color: var(--cor-primaria);
+        }
+        
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+            border: none;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        /* SVGs Minimal Line */
+        svg { stroke-width: 1.5; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+        
+        /* Footer */
+        .mini-footer {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #aaa;
+            margin-top: 30px;
+            padding-bottom: 10px;
+            line-height: 1.6;
+            background-color: var(--cor-bg-cinza);
+            padding: 20px;
+            margin-top: auto;
+        }
+
+        /* Banner de Cupom (Home) */
+        .cupom-banner {
+            background: linear-gradient(to right, var(--cor-secundaria), #fdfab6);
+            color: var(--cor-texto);
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
             font-size: 0.85rem;
-            color: var(--cor-texto-secundario);
-            opacity: 0;
-            animation: fadeIn 1s 0.8s ease-out forwards;
+            font-weight: 600;
+            margin: 15px 0 5px;
+            border: 1px dashed #d1c92a;
         }
 
-        .endereco {
-            margin-bottom: 0.75rem;
-            line-height: 1.5;
-        }
-
-        .copyright {
-            font-size: 0.8rem;
-            opacity: 0.8;
-        }
-        
-        /* ADICIONADO: Espaçamento para a linha do CNPJ */
-        .copyright + .copyright {
-            margin-top: 0.25rem;
-        }
-        
-        /* --- Responsividade (Desktop) --- */
-        @media (min-width: 640px) {
-            body {
-                padding: 3rem 1rem;
-            }
-
-            .container-principal {
-                padding: 1.5rem 2.5rem; /* Restaura o padding maior para desktop */
-            }
-
-            .titulo-principal {
-                font-size: 2.75rem;
-            }
-
-            .texto-apresentacao {
-                font-size: 1.1rem;
-            }
-
-            .banner-cupom {
-                font-size: 1rem;
-            }
-        }
     </style>
 </head>
 <body>
-    
-    <!-- Container Principal --><main class="container-principal">
-        
-        <!-- 1. Banner de Cupom (MOVIDO) --><!-- 
-            <div class="banner-cupom">
-                🎁 Primeira Compra? Use o cupom: <strong>PRIMEIRACOMPRA</strong>
-            </div>
-        --><!-- 2. Cabeçalho (Logo, Título, Descrição) --><header class="cabecalho">
-            <div class="logo-container">
-                <img src="https://i.ibb.co/kRKzZCt/logoo-1.png" alt="Logo Revendedora" class="logo-real" onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f0f0f0';">
-            </div>
-            
-            <!-- ATUALIZADO: H1 otimizado para SEO (escondido visualmente) --><h1 class="titulo-principal sr-only">
-                Cjota Rasteirinhas
-            </h1>
-            
-            <!-- ATUALIZADO: Agora é um <h2> (título visual) --><h2 class="sub-boasvindas">
-                BEM-VINDA REVENDEDORA!
-            </h2>
-            
-            <p class="texto-apresentacao">
-                Somos fabricantes! Vendemos no atacado com pedido mínimo de 5 pares. Enviamos para todo o Brasil.
-            </p>
-        </header>
 
-        <!-- 2. Banner de Cupom (NOVO FORMATO) --><div class="banner-cupom">
-            <div class="banner-texto-cupom">
-                <!-- ATUALIZADO: Texto mais claro -->🎁 Cupom 1ª Compra: <strong id="cupom-texto">PRIMEIRACOMPRA</strong>
+    <div id="app-container">
+        
+        <!-- ================= HOME ================= -->
+        <div id="view-home" class="view active">
+            <header id="home-header">
+                <div class="logo-area">
+                    <img src="https://i.ibb.co/kRKzZCt/logoo-1.png" alt="CJOTA" class="logo-img" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiBmaWxsPSIjZGVkZWRlIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI1MCIvPjwvc3ZnPg=='">
+                </div>
+                <h1 class="home-title">CJOTA Rasteirinhas</h1>
+                <h2 class="home-subtitle">Fábrica de calçados femininos</h2>
+                <div class="home-desc">Atacado • Personalização • Franquias</div>
+                
+                <div class="cupom-banner">
+                    🎁 Cupom 1ª Compra: <strong>PRIMEIRACOMPRA</strong>
+                </div>
+            </header>
+
+            <nav class="menu-grid" style="flex-grow: 1;">
+                
+                <!-- 1º Card: Atacado (Destaque Principal) -->
+                <div class="menu-card full-width" onclick="navigateTo('view-atacado')">
+                    <div class="icon-box" style="background: rgba(220, 46, 218, 0.1);">
+                        <svg width="24" height="24" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    </div>
+                    <div style="flex-grow:1; margin-left:15px;">
+                        <h3 style="color: var(--cor-primaria); font-size:1rem;">Catálogo Atacado</h3>
+                        <span>Revenda</span>
+                    </div>
+                    <svg width="20" height="20" style="color:#ddd"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </div>
+
+                <!-- 2º Card: C4 Franquias -->
+                <div class="menu-card" onclick="navigateTo('view-franquias')">
+                    <div class="icon-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24"><path d="M3 21h18"></path><rect x="5" y="7" width="14" height="14"></rect><path d="M5 7l7-4 7 4"></path></svg>
+                    </div>
+                    <h3>C4 Franquias</h3>
+                    <span>Seja sócia</span>
+                </div>
+
+                <!-- 3º Card: Personalização -->
+                <div class="menu-card" onclick="navigateTo('view-personalizacao')">
+                    <div class="icon-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                    </div>
+                    <h3>Sua Logomarca</h3>
+                    <span>Personalização</span>
+                </div>
+
+                <!-- 4º Card: Lucro Certo -->
+                <div class="menu-card" onclick="navigateTo('view-lucro-certo')">
+                    <div class="icon-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                    </div>
+                    <h3>Lucro Certo</h3>
+                    <span>Precificação</span>
+                </div>
+
+                <!-- 5º Card: WhatsApp -->
+                <div class="menu-card" onclick="navigateTo('view-whatsapp')">
+                    <div class="icon-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    </div>
+                    <h3>Falar Conosco</h3>
+                    <span>WhatsApp</span>
+                </div>
+
+                <!-- 6º Card: Grupo VIP -->
+                <div class="menu-card" onclick="navigateTo('view-vip')">
+                    <div class="icon-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <h3>Grupo VIP</h3>
+                    <span>Novidades</span>
+                </div>
+
+                <!-- 7º Card: CJ Indica -->
+                <div class="menu-card" onclick="navigateTo('view-cj-indica')">
+                    <div class="icon-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                    </div>
+                    <h3>CJ Indica</h3>
+                    <span>Envio Rápido</span>
+                </div>
+
+                <!-- 8º Card: Loja -->
+                <div class="menu-card full-width" onclick="navigateTo('view-loja')">
+                    <div class="icon-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    </div>
+                    <div style="flex-grow:1; margin-left:15px;">
+                        <h3 style="font-size:1rem;">Nossa Loja Física</h3>
+                        <span>Localização</span>
+                    </div>
+                    <svg width="20" height="20" style="color:#ddd"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </div>
+            </nav>
+
+            <div class="mini-footer">
+                Cjota Rasteirinhas © 2026<br>
+                Todos os direitos reservados<br>
+                <small style="font-size: 0.65rem; opacity: 0.7;">CNPJ: 45.377.284/0001-78</small>
             </div>
-            <button class="btn-copiar" id="btn-copiar" title="Copiar Cupom">
-                <!-- ÍCONE ATUALIZADO: SVG Embutido --><span id="icone-copiar-span">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                </span>
-            </button>
         </div>
 
-        <!-- 3. Navegação (Lista de Botões) --><nav>
-            <ul class="lista-links">
+        <!-- ================= ATACADO ================= -->
+        <div id="view-atacado" class="view">
+            <header class="nav-header">
+                <button class="btn-voltar" onclick="navigateTo('view-home')">
+                    <svg width="20" height="20" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg> Voltar
+                </button>
+                <div class="page-title">Atacado</div>
+            </header>
+
+            <div class="content-box">
+                <h2 style="color:var(--cor-primaria); margin-bottom:10px;">Atacado CJOTA</h2>
+                <p>Lucre revendendo calçados direto da fábrica com alta qualidade e preço justo.</p>
                 
-                <!-- Botão 1: CATÁLOGO ATACADO (Primário) --><li>
-                    <!-- ATUALIZADO: Cupom embutido no link --><a href="https://cjotarasteirinhas.com.br/?cupom=PRIMEIRACOMPRA" target="_blank" rel="noopener" class="btn btn-primario">
-                        <!-- ÍCONE ATUALIZADO: SVG Embutido --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
-                        CATÁLOGO ATACADO
-                    </a>
-                </li>
+                <ul class="feature-list">
+                    <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Pedido mínimo: 5 pares</li>
+                    <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Enviamos para todo o Brasil</li>
+                    <li><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg> Revenda com até 150% de lucro</li>
+                    <li><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Numeração: 33 ao 41</li>
+                </ul>
+            </div>
 
-                <!-- Botão 2: MAIS VENDIDOS (Especial) --><li>
-                    <!-- ATUALIZADO: Cupom embutido no link e classe de botão --><a href="https://cjotarasteirinhas.com.br/c/atacado/categoria/305853/62981480687?cupom=PRIMEIRACOMPRA" target="_blank" rel="noopener" class="btn btn-secundario"> <!-- CLASSE ATUALIZADA --><!-- ÍCONE ATUALIZADO: SVG Embutido --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                        MAIS VENDIDOS
-                        <span class="badge">🔥 HOT</span> <!-- Animação removida --></a>
-                </li>
-                
-                <!-- Botão 3: MODELOS R$25,00 (Secundário) --><li>
-                    <!-- ATUALIZADO: Cupom embutido no link --><a href="https://cjotarasteirinhas.com.br/c/atacado/categoria/336926/62981480687?cupom=PRIMEIRACOMPRA" target="_blank" rel="noopener" class="btn btn-secundario">
-                        <!-- ÍCONE ATUALIZADO: SVG Embutido --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-                        MODELOS R$25,00
-                    </a>
-                </li>
-
-                <!-- Botão 4: FALE CONOSCO (WhatsApp) --><li>
-                    <!-- ATUALIZADO: Classe de botão --><a href="https://wa.me/+5562981480687?text=Ol%C3%A1%2C%20vim%20do%20link%20da%20Bio!" target="_blank" rel="noopener" class="btn btn-whatsapp"> <!-- CLASSE ATUALIZADA --><!-- ÍCONE ATUALIZADO: SVG Embutido (ícone preenchido para branding) --><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.0-6.556 5.333-11.891 11.893-11.891 3.181.0 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.0 6.557-5.335 11.89-11.891 11.89-1.996 0-3.903-.52-5.607-1.476l-6.163 1.688a.709.709 0 0 1-.84-.829zm3.413-5.039s.422.329 1.523.822c1.482.615 3.064.935 4.63.935 5.47 0 9.94-4.47 9.94-9.94s-4.47-9.94-9.94-9.94c-5.47 0-9.94 4.47-9.94 9.94 0 2.006.6 3.89 1.646 5.518l.173.284-1.127 4.111 4.226-1.141.287.175z m5.023-7.203c-.27-.135-.99-.49-1.146-.545s-.39-.081-.546.081c-.156.162-.546.545-.67.67-.124.124-.248.135-.47.054s-1.313-.483-2.498-1.523c-.929-.814-1.55-1.83-1.732-2.152s-.036-.248.081-.382c.106-.124.248-.3.382-.447s.162-.248.248-.41.04-.329-.04-.447c-.081-.124-.546-1.313-.67-1.804s-.248-.41-.382-.41h-.382s-.329-.04-.546.248c-.217.29-.814.814-.814 1.958s.814 2.28 1.05 2.527c.236.248 1.673 2.527 4.07 3.589s2.4.767 2.761.696c.546-.106 1.707-.702 1.958-1.389s.248-1.264.162-1.389c-.081-.124-.248-.124-.47-.248z"></path></svg>
-                        FALE CONOSCO
-                    </a>
-                </li>
-                
-                <!-- Botão 5: CATÁLOGO DIVULGAÇÃO (Secundário) --><li>
-                    <a href="https://drive.google.com/drive/folders/1MCdLmRZdukfuedik3baPYFnkEOMki1Qe?usp=drive_link" target="_blank" rel="noopener" class="btn btn-secundario">
-                        <!-- ÍCONE ATUALIZADO: SVG Embutido --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-                        CATÁLOGO DIVULGAÇÃO
-                    </a>
-                </li>
-
-                <!-- Botão 6: ENDEREÇO LOJA FÍSICA (Secundário) --><li>
-                    <a href="https://maps.app.goo.gl/nnQ4m6586yLRTDbj9" target="_blank" rel="noopener" class="btn btn-secundario">
-                        <!-- ÍCONE ATUALIZADO: SVG Embutido --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                        ENDEREÇO LOJA FÍSICA
-                    </a>
-                </li>
-            </ul>
-        </nav>
-
-    </main>
-    
-    <!-- Rodapé com Endereço e Copyright --><footer class="rodape">
-        <p class="endereco">
-            📍 Corredor Aracaju - Shopping Centro Oeste Outlet, Loja 665, St. Central, Goiânia - GO
-        </p>
-        <p class="copyright">
-            <!-- ATUALIZADO: "Sua Empresa" para "Cjota Rasteirinhas" -->&copy; <span id="currentYear"></span> Cjota Rasteirinhas. Todos os direitos reservados.
-        </p>
-        <!-- ADICIONADO: Linha do CNPJ --><p class="copyright">
-            CNPJ: 45.377.284/0001-78
-        </p>
-    </footer>
-    
-    <!-- JavaScript (Vanilla) --><script>
-        // Espera o DOM (toda a página) estar completamente carregado
-        document.addEventListener('DOMContentLoaded', function() {
+            <a href="https://cjotarasteirinhas.com.br/?cupom=PRIMEIRACOMPRA" target="_blank" class="btn-action btn-primary">
+                <svg width="20" height="20" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                Acessar Catálogo
+            </a>
             
-            // 1. Ativa os ícones da biblioteca Lucide (REMOVIDO)
-            // Font Awesome não precisa de script de inicialização.
+            <a href="https://wa.me/5562981480687?text=Quero%20tirar%20dúvidas%20sobre%20o%20Atacado" target="_blank" class="btn-action btn-outline">
+                Falar no WhatsApp
+            </a>
+        </div>
 
-            // 2. Define o ano atual no rodapé
-            const currentYearSpan = document.getElementById('currentYear');
-            if (currentYearSpan) {
-                currentYearSpan.textContent = new Date().getFullYear();
+        <!-- ================= FRANQUIAS ================= -->
+        <div id="view-franquias" class="view">
+            <header class="nav-header">
+                <button class="btn-voltar" onclick="navigateTo('view-home')">
+                    <svg width="20" height="20" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg> Voltar
+                </button>
+                <div class="page-title">C4 Franquias</div>
+            </header>
+
+            <div class="content-box">
+                <h2 style="color:var(--cor-primaria); margin-bottom:10px;">Sua Loja Virtual Pronta</h2>
+                <p>Tenha seu próprio site profissional já abastecido com todos os produtos CJOTA. Venda por encomenda sem investir em estoque.</p>
+                
+                <ul class="feature-list">
+                    <li><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg> Site pronto com produtos cadastrados</li>
+                    <li><svg viewBox="0 0 24 24"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg> Personalize com sua Logo e Margem</li>
+                    <li><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg> Estoque atualizado em tempo real</li>
+                    <li><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> +100 Franqueadas ativas</li>
+                </ul>
+            </div>
+
+            <a href="https://c4franquias.com/" target="_blank" class="btn-action btn-primary">
+                <svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                Acessar Site Oficial
+            </a>
+
+            <a href="https://wa.me/5562981480687?text=Ol%C3%A1%2C%20tenho%20d%C3%BAvidas%20sobre%20a%20C4%20Franquias" target="_blank" class="btn-action btn-outline">
+                <svg width="20" height="20" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                Tirar Dúvidas no WhatsApp
+            </a>
+        </div>
+
+        <!-- ================= PERSONALIZAÇÃO ================= -->
+        <div id="view-personalizacao" class="view">
+            <header class="nav-header">
+                <button class="btn-voltar" onclick="navigateTo('view-home')">
+                    <svg width="20" height="20" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg> Voltar
+                </button>
+                <div class="page-title">Sua Marca Própria</div>
+            </header>
+
+            <div class="content-box">
+                <h2 style="color:var(--cor-primaria); margin-bottom:10px;">Sua Personalização</h2>
+                <p>Produzimos rasteirinhas com a sua marca aplicada. Ideal para lojas, marcas próprias e empreendedoras que desejam vender com identidade própria.</p>
+                
+                <ul class="feature-list">
+                    <li><svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"></path></svg> Aplicação da sua logomarca</li>
+                    <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Produção sob encomenda</li>
+                    <li><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path></svg> Mínimo: 2 grades fechadas</li>
+                    <li><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> Grade: Mesmo modelo e cor</li>
+                    <li><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg> Prazos e valores sob consulta</li>
+                </ul>
+            </div>
+
+            <a href="https://wa.me/5562981480687?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20Personaliza%C3%A7%C3%A3o%20de%20Logomarca%20(M%C3%ADnimo%202%20grades)" target="_blank" class="btn-action btn-whatsapp">
+                <svg width="20" height="20" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                Falar sobre Personalização
+            </a>
+        </div>
+
+        <!-- ================= LUCRO CERTO ================= -->
+        <div id="view-lucro-certo" class="view">
+            <header class="nav-header">
+                <button class="btn-voltar" onclick="navigateTo('view-home')">
+                    <svg width="20" height="20" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg> Voltar
+                </button>
+                <div class="page-title">Sistema Lucro Certo</div>
+            </header>
+
+            <div class="content-box">
+                <h2 style="color:var(--cor-primaria); margin-bottom:10px;">Gestão Completa para Empreendedoras</h2>
+                <p>Muito mais que precificação: um sistema que organiza sua empresa e transforma seu estoque em vendas.</p>
+                
+                <ul class="feature-list">
+                    <li><svg viewBox="0 0 24 24"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg> Precificação Correta & PDV</li>
+                    <li><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg> Seus produtos viram um Catálogo Digital</li>
+                    <li><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg> Gestão Financeira e Controle de Vendas</li>
+                    <li><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Cadastro e Gestão de Clientes</li>
+                </ul>
+            </div>
+
+            <a href="https://sistemalucrocerto.com/" target="_blank" class="btn-action btn-primary">
+                <svg width="20" height="20" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                Conhecer o Sistema
+            </a>
+
+            <a href="https://wa.me/5562981480687?text=Quero%20saber%20mais%20sobre%20o%20Sistema%20Lucro%20Certo" target="_blank" class="btn-action btn-outline">
+                <svg width="20" height="20" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                Tirar Dúvidas no WhatsApp
+            </a>
+        </div>
+
+        <!-- ================= CJ INDICA ================= -->
+        <div id="view-cj-indica" class="view">
+            <header class="nav-header">
+                <button class="btn-voltar" onclick="navigateTo('view-home')">
+                    <svg width="20" height="20" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg> Voltar
+                </button>
+                <div class="page-title">CJ Indica</div>
+            </header>
+
+            <div class="content-box">
+                <h2 style="color:var(--cor-primaria); margin-bottom:10px;">Receba Mais Rápido</h2>
+                <p>Encontre as melhores opções de envio saindo direto de Goiânia para sua cidade.</p>
+                
+                <ul class="feature-list">
+                    <li><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg> Lista de Transportadoras</li>
+                    <li><svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="3"></circle><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"></path></svg> Contatos de Excursões</li>
+                    <li><svg viewBox="0 0 24 24"><polyline points="13 2 13 9 20 9"></polyline><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path></svg> Organizado por Região</li>
+                    <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Agilize sua entrega</li>
+                </ul>
+            </div>
+
+            <a href="https://cjotaindica.netlify.app/" target="_blank" class="btn-action btn-primary">
+                <svg width="20" height="20" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                Acessar Lista de Envios
+            </a>
+        </div>
+
+        <!-- ================= WHATSAPP INTELIGENTE ================= -->
+        <div id="view-whatsapp" class="view">
+            <header class="nav-header">
+                <button class="btn-voltar" onclick="navigateTo('view-home')">
+                    <svg width="20" height="20" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg> Voltar
+                </button>
+                <div class="page-title">Fale Conosco</div>
+            </header>
+
+            <div class="text-center mb-4" style="padding-top:20px;">
+                <h2>Como podemos ajudar?</h2>
+                <p>Escolha o assunto para agilizar seu atendimento:</p>
+            </div>
+
+            <a href="https://wa.me/5562981480687?text=Ol%C3%A1,%20tenho%20interesse%20no%20Atacado%20Sortido" target="_blank" class="btn-action btn-outline">
+                Atacado Sortido
+            </a>
+            <a href="https://wa.me/5562981480687?text=Ol%C3%A1,%20quero%20saber%20sobre%20Logomarca" target="_blank" class="btn-action btn-outline">
+                Atacado com Logomarca
+            </a>
+            <a href="https://wa.me/5562981480687?text=Gostaria%20de%20saber%20sobre%20meu%20pedido" target="_blank" class="btn-action btn-outline">
+                Pedido em Andamento
+            </a>
+            <a href="https://wa.me/5562981480687?text=Tenho%20interesse%20na%20Franquia" target="_blank" class="btn-action btn-outline">
+                Franquias
+            </a>
+            <a href="https://wa.me/5562981480687?text=Tenho%20outras%20d%C3%BAvidas" target="_blank" class="btn-action btn-outline">
+                Outras Dúvidas
+            </a>
+        </div>
+
+        <!-- ================= NOSSA LOJA ================= -->
+        <div id="view-loja" class="view">
+            <header class="nav-header">
+                <button class="btn-voltar" onclick="navigateTo('view-home')">
+                    <svg width="20" height="20" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg> Voltar
+                </button>
+                <div class="page-title">Nossa Loja</div>
+            </header>
+
+            <div class="content-box">
+                <!-- Vídeo da Loja -->
+                <video controls playsinline style="width: 100%; border-radius: 8px; margin-bottom: 20px; background: #000; display: block;">
+                    <source src="https://files.catbox.moe/f64qpi.mp4" type="video/mp4">
+                    Seu navegador não suporta a exibição deste vídeo.
+                </video>
+
+                <h3>CJOTA Física</h3>
+                <p>Venha nos visitar e conhecer a qualidade de perto.</p>
+                <hr style="border:0; border-top:1px solid #eee; margin:15px 0;">
+                <p><strong>Endereço:</strong><br>
+                Corredor Aracaju - Shopping Centro Oeste Outlet<br>
+                Loja 665, St. Central, Goiânia - GO</p>
+            </div>
+
+            <a href="https://maps.app.goo.gl/nnQ4m6586yLRTDbj9" target="_blank" class="btn-action btn-primary">
+                <svg width="20" height="20" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Abrir no Google Maps
+            </a>
+        </div>
+
+        <!-- ================= GRUPO VIP ================= -->
+        <div id="view-vip" class="view">
+            <header class="nav-header">
+                <button class="btn-voltar" onclick="navigateTo('view-home')">
+                    <svg width="20" height="20" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg> Voltar
+                </button>
+                <div class="page-title">Grupo VIP</div>
+            </header>
+
+            <div class="text-center" style="padding: 40px 20px;">
+                <div style="width:80px; height:80px; background:var(--cor-secundaria); border-radius:50%; display:inline-flex; align-items:center; justify-content:center; margin-bottom:20px;">
+                    <svg width="40" height="40" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </div>
+                <h2>Grupo Exclusivo</h2>
+                <p>Receba lançamentos, promoções relâmpago e conteúdo exclusivo para revendedoras em primeira mão.</p>
+                
+                <a href="#" class="btn-action btn-primary" style="margin-top:20px;">
+                    Entrar no Grupo VIP
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function navigateTo(viewId) {
+            // 1. Esconde todas as views
+            const views = document.querySelectorAll('.view');
+            views.forEach(v => v.classList.remove('active'));
+            
+            // 2. Mostra a view alvo
+            const target = document.getElementById(viewId);
+            if(target) {
+                target.classList.add('active');
+                window.scrollTo(0,0); // Rola para o topo
             }
-
-            // 3. Efeito Ripple (Onda) nos botões (REMOVIDO)
-            
-            // 4. ADICIONADO: Lógica para Copiar Cupom
-            // ATUALIZADO: Para funcionar com SVGs
-            const btnCopiar = document.getElementById('btn-copiar');
-            const textoCupomElemento = document.getElementById('cupom-texto');
-            const iconeCopiarSpan = document.getElementById('icone-copiar-span');
-            
-            // Strings dos ícones SVG
-            const svgIconCopy = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
-            const svgIconCheck = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
-            
-            if (btnCopiar && textoCupomElemento && iconeCopiarSpan) {
-                
-                // Define o ícone inicial
-                iconeCopiarSpan.innerHTML = svgIconCopy;
-
-                btnCopiar.addEventListener('click', function(e) {
-                    e.stopPropagation(); 
-                    
-                    const cupom = textoCupomElemento.innerText;
-
-                    // Cria um textarea temporário para usar o execCommand
-                    // (Necessário para funcionar em todos os navegadores/iframes)
-                    const tempTextArea = document.createElement('textarea');
-                    tempTextArea.value = cupom;
-                    document.body.appendChild(tempTextArea);
-                    
-                    // Esconde o textarea
-                    tempTextArea.style.position = 'absolute';
-                    tempTextArea.style.left = '-9999px';
-                    
-                    tempTextArea.select();
-                    tempTextArea.setSelectionRange(0, 99999); // Para mobile
-
-                    try {
-                        document.execCommand('copy');
-                        
-                        // Feedback visual de sucesso
-                        iconeCopiarSpan.innerHTML = svgIconCheck; // Muda ícone para "check"
-                        btnCopiar.classList.add('copiado'); // Adiciona classe verde
-
-                        // Volta ao normal depois de 2 segundos
-                        setTimeout(() => {
-                            iconeCopiarSpan.innerHTML = svgIconCopy; // Volta ícone original
-                            btnCopiar.classList.remove('copiado');
-                        }, 2000);
-
-                    } catch (err) {
-                        console.error('Falha ao copiar o cupom:', err);
-                        // Você pode adicionar um feedback de erro aqui se quiser
-                    }
-
-                    // Remove o textarea temporário
-                    document.body.removeChild(tempTextArea);
-                });
-            }
-
-
-            console.log("Página 'Link na Bio' carregada com sucesso!");
-        });
+        }
     </script>
-
 </body>
 </html>
