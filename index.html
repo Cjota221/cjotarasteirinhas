@@ -1,16 +1,71 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QV7XWJHTW9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-QV7XWJHTW9');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>CJOTA Rasteirinhas | Hub Oficial</title>
     
-    <!-- Meta Tags -->
-    <meta name="description" content="CJOTA Rasteirinhas - Fábrica de calçados femininos. Atacado, Personalização e Franquias.">
+    <!-- ================= SEO & METADADOS ================= -->
+    <title>CJOTA Rasteirinhas | Fábrica de Calçados Atacado e Personalizados</title>
+    <meta name="description" content="Fábrica de rasteirinhas femininas em Goiânia. Venda EXCLUSIVA no atacado para revenda. Lucro de até 150%. Personalizamos com sua logomarca.">
+    <meta name="keywords" content="rasteirinhas atacado, fábrica de calçados, calçados femininos goiânia, revenda de calçados, rasteirinhas personalizadas, marca própria calçados, franquia de calçados, atacado de sapatos, cjota">
+    <meta name="author" content="CJOTA Rasteirinhas">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="CJOTA Rasteirinhas">
+    <meta property="og:title" content="CJOTA Rasteirinhas | Fábrica e Atacado">
+    <meta property="og:description" content="Site exclusivo para Lojistas e Revendedoras. Lucre até 150% revendendo direto da fábrica.">
     <meta property="og:image" content="https://i.ibb.co/kRKzZCt/logoo-1.png">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:url" content="https://cjotarasteirinhas.com.br"> 
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CJOTA Rasteirinhas | Fábrica e Atacado">
+    <meta name="twitter:description" content="Site exclusivo para Lojistas e Revendedoras. Lucre até 150% revendendo direto da fábrica.">
+    <meta name="twitter:image" content="https://i.ibb.co/kRKzZCt/logoo-1.png">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WholesaleStore",
+      "name": "CJOTA Rasteirinhas",
+      "image": "https://i.ibb.co/kRKzZCt/logoo-1.png",
+      "description": "Fábrica de rasteirinhas femininas em Goiânia focada exclusivamente em atacado B2B.",
+      "telephone": "+5562981480687",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Corredor Aracaju - Shopping Centro Oeste Outlet, Loja 665, St. Central",
+        "addressLocality": "Goiânia",
+        "addressRegion": "GO",
+        "postalCode": "74000-000",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -16.6800,
+        "longitude": -49.2500
+      }
+    }
+    </script>
 
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💖</text></svg>">
+    <meta name="theme-color" content="#DC2EDA">
 
     <!-- Fonte Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,10 +78,10 @@
             --cor-primaria: #DC2EDA;
             --cor-primaria-dark: #b01baf; 
             --cor-secundaria: #f2ea22;
-            --cor-fundo: #f4f6f8; /* Fundo mais sofisticado */
+            --cor-fundo: #f4f6f8; 
             --cor-texto: #1a1a1a;
             --cor-texto-suave: #666666;
-            --sombra-card: 0 10px 30px -5px rgba(0,0,0,0.08); /* Sombra difusa moderna */
+            --sombra-card: 0 10px 30px -5px rgba(0,0,0,0.08);
             --radius-card: 24px;
             --radius-btn: 50px;
         }
@@ -35,11 +90,11 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #eef2f5; /* Fundo externo desktop */
+            background-color: #eef2f5;
             color: var(--cor-texto);
-            display: flex;
-            justify-content: center;
             min-height: 100vh;
+            /* CORREÇÃO DE SCROLL: Removido display flex do body */
+            display: block; 
         }
 
         /* --- Container App Mobile --- */
@@ -50,9 +105,11 @@
             min-height: 100vh;
             position: relative;
             box-shadow: 0 0 50px rgba(0,0,0,0.08);
-            overflow-x: hidden;
+            /* CORREÇÃO DE SCROLL: Centralização via margin */
+            margin: 0 auto; 
             display: flex;
             flex-direction: column;
+            overflow-x: hidden; /* Mantém apenas horizontal escondido */
         }
 
         /* --- Utilitários --- */
@@ -146,31 +203,27 @@
         .logo-img { width: 100%; height: 100%; border-radius: 50%; border: 3px solid white; background: white; object-fit: cover; }
 
         .home-title { font-size: 1.7rem; font-weight: 800; color: var(--cor-primaria); margin-bottom: 5px; letter-spacing: -0.5px; }
-        .home-subtitle { font-size: 0.95rem; font-weight: 500; color: var(--cor-texto-suave); margin-bottom: 15px; }
+        .home-subtitle { font-size: 0.95rem; font-weight: 600; color: var(--cor-texto-suave); margin-bottom: 8px; }
         
+        /* Texto B2B Clean */
+        .b2b-text { 
+            font-size: 0.8rem; 
+            color: var(--cor-primaria); 
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
         .home-desc { 
-            font-size: 0.75rem; 
+            font-size: 0.8rem; 
             color: #666; 
             background: #f5f5f5; 
             display: inline-block; 
             padding: 6px 14px; 
             border-radius: 20px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .cupom-banner {
-            background: linear-gradient(135deg, #fffde7, #fff59d);
-            color: #f57f17;
-            padding: 12px;
-            border-radius: 12px;
-            text-align: center;
-            font-size: 0.9rem;
-            font-weight: 700;
-            margin: 20px 0 5px;
-            border: 1px dashed #fbc02d;
-            box-shadow: 0 4px 15px rgba(249, 168, 37, 0.15);
+            font-weight: 500;
+            margin-top: 5px;
         }
 
         /* --- GRID DE CARDS --- */
@@ -179,6 +232,21 @@
             grid-template-columns: 1fr 1fr;
             gap: 16px;
             padding: 0 20px 30px;
+        }
+
+        /* Divisores de Seção */
+        .menu-separator {
+            grid-column: 1 / -1;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 15px 0 5px;
+            padding-left: 10px;
+            border-left: 3px solid var(--cor-primaria);
+            display: flex;
+            align-items: center;
         }
 
         .menu-card {
@@ -281,6 +349,37 @@
             text-align: center; font-size: 0.75rem; color: #aaa;
             background-color: var(--cor-fundo); padding: 30px 20px; margin-top: auto;
         }
+
+        /* Ícone WhatsApp Flutuante com Texto */
+        .float-wa {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50px; /* Formato Pílula */
+            padding: 12px 24px; /* Espaço interno */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px; /* Espaço entre ícone e texto */
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            animation: bounce 2.5s infinite;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+        .float-wa:hover {
+            transform: scale(1.05);
+            background-color: #128C7E;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-6px);}
+            60% {transform: translateY(-3px);}
+        }
     </style>
 </head>
 <body>
@@ -294,12 +393,9 @@
                     <img src="https://i.ibb.co/kRKzZCt/logoo-1.png" alt="CJOTA" class="logo-img" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiBmaWxsPSIjZGVkZWRlIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI1MCIvPjwvc3ZnPg=='">
                 </div>
                 <h1 class="home-title">CJOTA Rasteirinhas</h1>
-                <h2 class="home-subtitle">Fábrica de calçados femininos</h2>
+                <h2 class="home-subtitle">Fábrica de rasteirinhas femininas</h2>
+                <div class="b2b-text">Exclusivo para Lojistas e Revendedoras</div>
                 <div class="home-desc">Atacado • Personalização • Franquias</div>
-                
-                <div class="cupom-banner">
-                    🎁 Cupom 1ª Compra: <strong>PRIMEIRACOMPRA</strong>
-                </div>
             </header>
 
             <nav class="menu-grid" style="flex-grow: 1;">
@@ -334,6 +430,9 @@
                     <span>Rasteirinhas com a sua marca</span>
                 </div>
 
+                <!-- Título Seção Apps -->
+                <div class="menu-separator">Conheça nossos Apps</div>
+
                 <!-- 4º Card: Lucro Certo -->
                 <div class="menu-card" onclick="navigateTo('view-lucro-certo')">
                     <div class="icon-box bg-lucro">
@@ -343,7 +442,19 @@
                     <span>Gestão e precificação inteligente</span>
                 </div>
 
-                <!-- 5º Card: WhatsApp -->
+                <!-- 5º Card: CJ Indica -->
+                <div class="menu-card" onclick="navigateTo('view-cj-indica')">
+                    <div class="icon-box bg-indica">
+                        <svg width="24" height="24" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                    </div>
+                    <h3>CJ Indica</h3>
+                    <span>Transportadoras e excursões</span>
+                </div>
+
+                <!-- Título Seção Atendimento -->
+                <div class="menu-separator">Atendimento & Comunidade</div>
+
+                <!-- 6º Card: WhatsApp -->
                 <div class="menu-card" onclick="navigateTo('view-whatsapp')">
                     <div class="icon-box bg-whatsapp">
                         <svg width="24" height="24" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
@@ -352,22 +463,13 @@
                     <span>Tire suas dúvidas agora</span>
                 </div>
 
-                <!-- 6º Card: Grupo VIP -->
+                <!-- 7º Card: Grupo VIP -->
                 <div class="menu-card" onclick="navigateTo('view-vip')">
                     <div class="icon-box bg-vip">
                         <svg width="24" height="24" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                     </div>
                     <h3>Grupo VIP</h3>
                     <span>Ofertas e lançamentos exclusivos</span>
-                </div>
-
-                <!-- 7º Card: CJ Indica -->
-                <div class="menu-card" onclick="navigateTo('view-cj-indica')">
-                    <div class="icon-box bg-indica">
-                        <svg width="24" height="24" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
-                    </div>
-                    <h3>CJ Indica</h3>
-                    <span>Transportadoras e excursões</span>
                 </div>
 
                 <!-- 8º Card: Loja -->
@@ -386,7 +488,7 @@
             <div class="mini-footer">
                 Cjota Rasteirinhas © 2026<br>
                 Todos os direitos reservados<br>
-                <small style="font-size: 0.65rem; opacity: 0.7;">CNPJ: 45.377.284/0001-78</small>
+                <small style="font-size: 0.65rem; opacity: 0.7;">CNPJ: 45.377.284/0001-78 | Venda exclusiva Atacado</small>
             </div>
         </div>
 
@@ -638,6 +740,12 @@
         </div>
 
     </div>
+
+    <!-- Botão WhatsApp Flutuante com Texto -->
+    <a href="https://wa.me/5562981480687?text=Ol%C3%A1%2C%20estou%20no%20site%20e%20gostaria%20de%20atendimento." target="_blank" class="float-wa">
+        <svg width="24" height="24" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+        Fale Conosco
+    </a>
 
     <script>
         // Patch para ignorar erro benigno de ResizeObserver no console
