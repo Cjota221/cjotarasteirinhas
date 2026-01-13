@@ -21,14 +21,13 @@
         /* --- Configurações Globais --- */
         :root {
             --cor-primaria: #DC2EDA;
-            --cor-primaria-dark: #b01baf; /* Tom mais escuro para texto */
+            --cor-primaria-dark: #b01baf; 
             --cor-secundaria: #f2ea22;
-            --cor-fundo: #f8f9fc; /* Fundo levemente cinza/azulado para tirar o "branco seco" */
-            --cor-card: #ffffff;
-            --cor-texto: #1a1a1a; /* Preto quase puro para contraste */
-            --cor-texto-suave: #555555;
-            --sombra-suave: 0 8px 24px rgba(0,0,0,0.06); /* Sombra mais elegante */
-            --radius-card: 20px;
+            --cor-fundo: #f4f6f8; /* Fundo mais sofisticado */
+            --cor-texto: #1a1a1a;
+            --cor-texto-suave: #666666;
+            --sombra-card: 0 10px 30px -5px rgba(0,0,0,0.08); /* Sombra difusa moderna */
+            --radius-card: 24px;
             --radius-btn: 50px;
         }
 
@@ -36,7 +35,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #eee; /* Fundo externo (desktop) */
+            background-color: #eef2f5; /* Fundo externo desktop */
             color: var(--cor-texto);
             display: flex;
             justify-content: center;
@@ -50,7 +49,7 @@
             background-color: var(--cor-fundo);
             min-height: 100vh;
             position: relative;
-            box-shadow: 0 0 50px rgba(0,0,0,0.1);
+            box-shadow: 0 0 50px rgba(0,0,0,0.08);
             overflow-x: hidden;
             display: flex;
             flex-direction: column;
@@ -60,22 +59,22 @@
         .hidden { display: none !important; }
         .text-center { text-align: center; }
         .mb-2 { margin-bottom: 1rem; }
-        .mb-4 { margin-bottom: 2rem; }
         
         h1, h2, h3 { color: var(--cor-texto); line-height: 1.2; }
         p { color: var(--cor-texto-suave); font-size: 0.95rem; line-height: 1.5; margin-bottom: 1rem; }
 
-        /* --- Header de Navegação (Páginas Internas) --- */
+        /* --- Header Navegação --- */
         .nav-header {
             display: flex;
             align-items: center;
             padding: 15px 20px;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
             z-index: 100;
             border-bottom: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
         }
 
         .btn-voltar {
@@ -95,11 +94,11 @@
             text-align: center;
             font-weight: 700;
             font-size: 1rem;
-            margin-right: 60px; /* Compensa o botão voltar para centralizar */
+            margin-right: 60px;
             color: var(--cor-texto);
         }
 
-        /* --- Sistema de Views (SPA) --- */
+        /* --- Views --- */
         .view {
             display: none;
             flex-direction: column;
@@ -107,34 +106,32 @@
             background-color: var(--cor-fundo);
         }
         
-        .view.active { display: flex; }
-
-        /* Animação Suave */
-        .view.active { animation: fadeIn 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .view.active { display: flex; animation: fadeIn 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Wrapper para Centralizar Conteúdo Verticalmente */
         .page-content-wrapper {
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Centraliza verticalmente */
-            padding: 25px 20px 40px; /* Padding extra embaixo */
+            justify-content: center;
+            padding: 25px 20px 40px;
         }
 
-        /* --- HOME --- */
+        /* --- HOME Header --- */
         #home-header {
             text-align: center;
-            padding: 40px 20px 20px;
+            padding: 40px 20px 25px;
             background: white;
-            border-bottom-left-radius: 30px;
-            border-bottom-right-radius: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-            margin-bottom: 20px;
+            border-bottom-left-radius: 35px;
+            border-bottom-right-radius: 35px;
+            box-shadow: 0 10px 40px rgba(220, 46, 218, 0.08); /* Sombra suave rosa */
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 10;
         }
 
         .logo-area {
@@ -143,200 +140,147 @@
             margin: 0 auto 15px;
             border-radius: 50%;
             padding: 4px;
-            background: linear-gradient(45deg, var(--cor-primaria), var(--cor-secundaria));
-            box-shadow: 0 8px 20px rgba(220, 46, 218, 0.2);
+            background: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
+            box-shadow: 0 10px 25px rgba(220, 46, 218, 0.25);
         }
-        .logo-img {
-            width: 100%; height: 100%; border-radius: 50%;
-            border: 3px solid white; background: white; object-fit: cover;
-        }
+        .logo-img { width: 100%; height: 100%; border-radius: 50%; border: 3px solid white; background: white; object-fit: cover; }
 
-        .home-title { font-size: 1.6rem; font-weight: 800; color: var(--cor-primaria); margin-bottom: 5px; letter-spacing: -0.5px; }
-        .home-subtitle { font-size: 0.95rem; font-weight: 600; color: var(--cor-texto-suave); margin-bottom: 15px; }
+        .home-title { font-size: 1.7rem; font-weight: 800; color: var(--cor-primaria); margin-bottom: 5px; letter-spacing: -0.5px; }
+        .home-subtitle { font-size: 0.95rem; font-weight: 500; color: var(--cor-texto-suave); margin-bottom: 15px; }
         
         .home-desc { 
-            font-size: 0.8rem; 
-            color: var(--cor-texto-suave); 
-            background: #f0f0f0; 
+            font-size: 0.75rem; 
+            color: #666; 
+            background: #f5f5f5; 
             display: inline-block; 
-            padding: 6px 16px; 
+            padding: 6px 14px; 
             border-radius: 20px;
-            font-weight: 500;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        /* Banner de Cupom (Home) */
         .cupom-banner {
-            background: linear-gradient(135deg, #fff9c4, #fff176);
-            color: #8d7b00;
+            background: linear-gradient(135deg, #fffde7, #fff59d);
+            color: #f57f17;
             padding: 12px;
             border-radius: 12px;
             text-align: center;
             font-size: 0.9rem;
-            font-weight: 600;
+            font-weight: 700;
             margin: 20px 0 5px;
-            border: 1px dashed #d1c92a;
-            box-shadow: 0 2px 10px rgba(242, 234, 34, 0.2);
+            border: 1px dashed #fbc02d;
+            box-shadow: 0 4px 15px rgba(249, 168, 37, 0.15);
         }
 
-        /* Grid de Cards da Home */
+        /* --- GRID DE CARDS --- */
         .menu-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            padding: 0 20px 20px;
+            gap: 16px;
+            padding: 0 20px 30px;
         }
 
         .menu-card {
-            background: var(--cor-card);
-            border: none;
+            background: white;
             border-radius: var(--radius-card);
-            padding: 20px 15px;
+            padding: 22px 15px;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            gap: 12px;
+            gap: 14px;
             cursor: pointer;
-            transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
-            box-shadow: var(--sombra-suave);
+            transition: all 0.3s ease;
+            box-shadow: var(--sombra-card);
             position: relative;
-            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.5); /* Borda sutil */
         }
 
-        /* Borda lateral colorida para dar vida */
-        .menu-card::before {
-            content: '';
-            position: absolute;
-            left: 0; top: 0; bottom: 0;
-            width: 4px;
-            background: var(--cor-primaria);
-            opacity: 0.7;
-        }
-        
-        /* Cores específicas para bordas (Opcional, mas ajuda no visual) */
-        .menu-card:nth-child(1)::before { background: var(--cor-primaria); } /* Atacado */
-        .menu-card:nth-child(2)::before { background: #333; } /* Franquias */
-        .menu-card:nth-child(3)::before { background: var(--cor-secundaria); } /* Personalização */
-        .menu-card:nth-child(4)::before { background: #00C853; } /* Lucro */
-
-        .menu-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-        }
+        .menu-card:active { transform: scale(0.98); }
+        .menu-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.12); }
 
         .menu-card.full-width { 
             grid-column: span 2; 
             flex-direction: row; 
             text-align: left; 
-            padding: 20px; 
-            background: linear-gradient(to right, #ffffff, #fafafa);
+            padding: 20px 24px;
+            background: linear-gradient(to bottom right, #ffffff, #fafafa);
         }
-        
+
+        /* Ícone Vibrante */
         .icon-box {
-            width: 50px; height: 50px;
-            background: #fdf2f8; /* Rosa bem claro */
-            border-radius: 14px;
+            width: 54px; height: 54px;
+            border-radius: 16px;
             display: flex; align-items: center; justify-content: center;
-            color: var(--cor-primaria);
-            transition: 0.2s;
+            color: white;
+            font-size: 1.5rem;
             flex-shrink: 0;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
-        .menu-card:hover .icon-box { transform: scale(1.1); }
-        
-        .menu-card h3 { 
-            font-size: 0.95rem; 
-            font-weight: 700; 
-            margin: 0; 
-            color: #2c2c2c; /* Texto mais escuro para contraste */
-        }
-        
-        .menu-card span { 
-            font-size: 0.75rem; 
-            color: #777; 
-            font-weight: 500;
-        }
+        .menu-card:hover .icon-box { transform: scale(1.1) rotate(5deg); }
+
+        /* Gradientes Específicos por Card */
+        .bg-atacado { background: linear-gradient(135deg, #DC2EDA, #ab19a9); box-shadow: 0 8px 20px rgba(220, 46, 218, 0.3); }
+        .bg-franquias { background: linear-gradient(135deg, #2c3e50, #000000); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+        .bg-personalizacao { background: linear-gradient(135deg, #f2ea22, #fbc02d); color: #333; box-shadow: 0 8px 20px rgba(242, 234, 34, 0.4); }
+        .bg-lucro { background: linear-gradient(135deg, #00c853, #009624); box-shadow: 0 8px 20px rgba(0, 200, 83, 0.3); }
+        .bg-whatsapp { background: linear-gradient(135deg, #25D366, #128C7E); box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3); }
+        .bg-vip { background: linear-gradient(135deg, #9C27B0, #6A1B9A); box-shadow: 0 8px 20px rgba(156, 39, 176, 0.3); }
+        .bg-indica { background: linear-gradient(135deg, #2196F3, #1565C0); box-shadow: 0 8px 20px rgba(33, 150, 243, 0.3); }
+        .bg-loja { background: linear-gradient(135deg, #e53935, #c62828); box-shadow: 0 8px 20px rgba(229, 57, 53, 0.3); }
+
+        .menu-card h3 { font-size: 0.95rem; font-weight: 700; margin: 0; color: #333; }
+        .menu-card span { font-size: 0.75rem; color: #888; font-weight: 500; display: block; line-height: 1.3; }
+
+        /* Seta nos cards largos */
+        .arrow-icon { margin-left: auto; color: #ddd; transition: 0.3s; }
+        .menu-card:hover .arrow-icon { color: var(--cor-primaria); transform: translateX(5px); }
 
         /* --- Componentes Internos --- */
         .content-box {
             background: white;
-            border-radius: var(--radius-card);
-            padding: 25px;
-            box-shadow: var(--sombra-suave);
-            border: 1px solid rgba(0,0,0,0.03);
+            border-radius: 24px;
+            padding: 30px 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
             margin-bottom: 25px;
         }
 
         .feature-list { list-style: none; margin: 20px 0 10px; }
         .feature-list li {
-            padding: 12px 0;
+            padding: 14px 0;
             border-bottom: 1px solid #f0f0f0;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             font-size: 0.95rem;
             color: #444;
+            line-height: 1.4;
         }
         .feature-list li:last-child { border-bottom: none; }
-        .feature-list svg { 
-            margin-right: 12px; 
-            color: var(--cor-primaria); 
-            width: 20px; height: 20px; 
-            flex-shrink: 0;
-        }
+        .feature-list svg { margin-right: 12px; color: var(--cor-primaria); width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px; }
 
-        /* Botões de Ação */
+        /* Botões */
         .btn-action {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            padding: 18px;
+            display: flex; align-items: center; justify-content: center;
+            width: 100%; padding: 18px;
             border-radius: var(--radius-btn);
-            font-weight: 700;
-            text-decoration: none;
-            margin-bottom: 12px;
-            transition: 0.2s;
-            cursor: pointer;
-            font-size: 1rem;
-            gap: 10px;
-            position: relative;
-            overflow: hidden;
+            font-weight: 700; text-decoration: none;
+            margin-bottom: 12px; transition: 0.3s;
+            font-size: 1rem; gap: 10px;
         }
+        .btn-primary { background: var(--cor-primaria); color: white; box-shadow: 0 8px 25px rgba(220, 46, 218, 0.3); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(220, 46, 218, 0.4); }
+        .btn-outline { background: white; border: 2px solid var(--cor-primaria); color: var(--cor-primaria); }
+        .btn-whatsapp { background: #25D366; color: white; box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3); }
 
-        .btn-primary {
-            background: var(--cor-primaria);
-            color: white;
-            box-shadow: 0 8px 20px rgba(220, 46, 218, 0.25);
-            border: none;
-        }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(220, 46, 218, 0.35); }
-
-        .btn-outline {
-            background: white;
-            border: 2px solid var(--cor-primaria);
-            color: var(--cor-primaria);
-        }
+        /* SVGs */
+        svg { stroke-width: 2; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
         
-        .btn-whatsapp {
-            background: #25D366;
-            color: white;
-            border: none;
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25);
-        }
-
-        /* SVGs Minimal Line */
-        svg { stroke-width: 1.5; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
-        
-        /* Footer */
         .mini-footer {
-            text-align: center;
-            font-size: 0.75rem;
-            color: #999;
-            line-height: 1.6;
-            background-color: var(--cor-fundo);
-            padding: 30px 20px;
-            margin-top: auto; /* Empurra para o fundo se houver espaço */
+            text-align: center; font-size: 0.75rem; color: #aaa;
+            background-color: var(--cor-fundo); padding: 30px 20px; margin-top: auto;
         }
-
     </style>
 </head>
 <body>
@@ -358,84 +302,84 @@
                 </div>
             </header>
 
-            <nav class="menu-grid">
+            <nav class="menu-grid" style="flex-grow: 1;">
                 
                 <!-- 1º Card: Atacado (Destaque Principal) -->
                 <div class="menu-card full-width" onclick="navigateTo('view-atacado')">
-                    <div class="icon-box" style="background: rgba(220, 46, 218, 0.1);">
+                    <div class="icon-box bg-atacado">
                         <svg width="24" height="24" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
                     </div>
                     <div style="flex-grow:1; margin-left:15px;">
-                        <h3 style="color: var(--cor-primaria); font-size:1.05rem;">Catálogo Atacado</h3>
-                        <span>Revenda</span>
+                        <h3 style="color: var(--cor-primaria); font-size:1.1rem;">Catálogo Atacado</h3>
+                        <span>Modelos exclusivos para revenda</span>
                     </div>
-                    <svg width="20" height="20" style="color:#ddd"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    <svg class="arrow-icon" width="20" height="20"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </div>
 
                 <!-- 2º Card: C4 Franquias -->
                 <div class="menu-card" onclick="navigateTo('view-franquias')">
-                    <div class="icon-box" style="background: #f4f4f4; color: #333;">
+                    <div class="icon-box bg-franquias">
                         <svg width="24" height="24" viewBox="0 0 24 24"><path d="M3 21h18"></path><rect x="5" y="7" width="14" height="14"></rect><path d="M5 7l7-4 7 4"></path></svg>
                     </div>
                     <h3>C4 Franquias</h3>
-                    <span>Seja sócia</span>
+                    <span>Sua loja online pronta sem estoque</span>
                 </div>
 
                 <!-- 3º Card: Personalização -->
                 <div class="menu-card" onclick="navigateTo('view-personalizacao')">
-                    <div class="icon-box" style="background: #fff9c4; color: #f9a825;">
+                    <div class="icon-box bg-personalizacao">
                         <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
                     </div>
                     <h3>Sua Logomarca</h3>
-                    <span>Personalização</span>
+                    <span>Rasteirinhas com a sua marca</span>
                 </div>
 
                 <!-- 4º Card: Lucro Certo -->
                 <div class="menu-card" onclick="navigateTo('view-lucro-certo')">
-                    <div class="icon-box" style="background: #e0f2f1; color: #009688;">
+                    <div class="icon-box bg-lucro">
                         <svg width="24" height="24" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
                     </div>
-                    <h3>Lucro Certo</h3>
-                    <span>Precificação</span>
+                    <h3>Sistema Lucro Certo</h3>
+                    <span>Gestão e precificação inteligente</span>
                 </div>
 
                 <!-- 5º Card: WhatsApp -->
                 <div class="menu-card" onclick="navigateTo('view-whatsapp')">
-                    <div class="icon-box" style="background: #e8f5e9; color: #2e7d32;">
+                    <div class="icon-box bg-whatsapp">
                         <svg width="24" height="24" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                     </div>
                     <h3>Falar Conosco</h3>
-                    <span>WhatsApp</span>
+                    <span>Tire suas dúvidas agora</span>
                 </div>
 
                 <!-- 6º Card: Grupo VIP -->
                 <div class="menu-card" onclick="navigateTo('view-vip')">
-                    <div class="icon-box" style="background: #f3e5f5; color: #8e24aa;">
+                    <div class="icon-box bg-vip">
                         <svg width="24" height="24" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                     </div>
                     <h3>Grupo VIP</h3>
-                    <span>Novidades</span>
+                    <span>Ofertas e lançamentos exclusivos</span>
                 </div>
 
                 <!-- 7º Card: CJ Indica -->
                 <div class="menu-card" onclick="navigateTo('view-cj-indica')">
-                    <div class="icon-box" style="background: #e3f2fd; color: #1565c0;">
+                    <div class="icon-box bg-indica">
                         <svg width="24" height="24" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
                     </div>
                     <h3>CJ Indica</h3>
-                    <span>Envio Rápido</span>
+                    <span>Transportadoras e excursões</span>
                 </div>
 
                 <!-- 8º Card: Loja -->
                 <div class="menu-card full-width" onclick="navigateTo('view-loja')">
-                    <div class="icon-box" style="background: #ffebee; color: #c62828;">
+                    <div class="icon-box bg-loja">
                         <svg width="24" height="24" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                     </div>
                     <div style="flex-grow:1; margin-left:15px;">
                         <h3 style="font-size:1rem;">Nossa Loja Física</h3>
-                        <span>Localização</span>
+                        <span>Visite nosso showroom em Goiânia</span>
                     </div>
-                    <svg width="20" height="20" style="color:#ddd"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    <svg class="arrow-icon" width="20" height="20"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </div>
             </nav>
 
@@ -696,6 +640,14 @@
     </div>
 
     <script>
+        // Patch para ignorar erro benigno de ResizeObserver no console
+        const resizeObserverLoopErr = 'ResizeObserver loop completed with undelivered notifications.';
+        window.addEventListener('error', function(event) {
+            if (event.message === resizeObserverLoopErr) {
+                event.stopImmediatePropagation();
+            }
+        });
+
         function navigateTo(viewId) {
             // 1. Esconde todas as views
             const views = document.querySelectorAll('.view');
