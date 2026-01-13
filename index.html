@@ -8,16 +8,16 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-QV7XWJHTW9');
+      gtag('config', 'G-QV7XWJHTW9', { 
+          'debug_mode': true,
+          'send_page_view': true 
+      });
 
-      // Rastreamento de Cliques
-      function trackClick(eventName, eventLabel) {
+      // Função Auxiliar para Rastreamento de Cliques (Eventos Personalizados)
+      function trackClick(eventName, eventParams) {
           if(typeof gtag === 'function'){
-              gtag('event', eventName, {
-                  'event_category': 'Clique',
-                  'event_label': eventLabel,
-                  'transport_type': 'beacon'
-              });
+              gtag('event', eventName, eventParams);
+              console.log('📢 Clique registrado:', eventName, eventParams);
           }
       }
     </script>
@@ -39,7 +39,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- ESTILO ORIGINAL (RESTAURADO) --- */
+        /* --- ESTILO ORIGINAL --- */
         :root {
             --cor-primaria: #DC2EDA;
             --cor-secundaria: #f2ea22;
@@ -64,7 +64,7 @@
         #app-container {
             width: 100%;
             max-width: 480px;
-            background-color: #ffffff; /* Fundo Branco Original */
+            background-color: #ffffff;
             min-height: 100vh;
             position: relative;
             box-shadow: 0 0 50px rgba(0,0,0,0.08);
@@ -74,18 +74,15 @@
             overflow-x: hidden;
         }
 
-        /* Tipografia Original */
         h1 { color: var(--cor-primaria); line-height: 1.2; font-weight: 800; font-size: 1.7rem; letter-spacing: -0.5px; }
         h2 { color: var(--cor-texto-suave); font-weight: 600; font-size: 0.95rem; }
-        h3 { color: #333; font-weight: 700; font-size: 0.95rem; margin: 0; }
+        h3 { color: var(--cor-primaria); font-weight: 700; font-size: 0.95rem; margin: 0; }
         p { color: var(--cor-texto-suave); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem; }
 
-        /* Utilitários */
         .hidden { display: none !important; }
         .text-center { text-align: center; }
         .mb-2 { margin-bottom: 1rem; }
 
-        /* Header Home */
         #home-header {
             text-align: center;
             padding: 40px 20px 20px;
@@ -117,17 +114,15 @@
             font-weight: 500; margin-top: 5px;
         }
 
-        /* Grid de Menu */
         .menu-grid {
             display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 0 20px 30px;
         }
 
         .menu-separator {
-            grid-column: 1 / -1; font-size: 0.75rem; font-weight: 700; color: #bbb;
+            grid-column: 1 / -1; font-size: 0.75rem; font-weight: 700; color: var(--cor-primaria);
             text-transform: uppercase; letter-spacing: 1px; margin: 20px 0 5px; text-align: center;
         }
 
-        /* Card Original (Com efeito de pulo padrão) */
         .menu-card {
             background: white; border-radius: var(--radius-card); padding: 20px 15px;
             display: flex; flex-direction: column; align-items: center; text-align: center;
@@ -148,7 +143,6 @@
             width: 50px; height: 50px; border-radius: 14px;
             display: flex; align-items: center; justify-content: center;
             color: white; font-size: 1.5rem; flex-shrink: 0;
-            /* Degradê Rosa Vibrante Original */
             background: linear-gradient(135deg, var(--cor-primaria), #b01baf);
             box-shadow: 0 6px 15px rgba(220, 46, 218, 0.25);
             transition: transform 0.3s ease;
@@ -160,7 +154,6 @@
         .arrow-icon { margin-left: auto; color: #ddd; transition: 0.3s; }
         .menu-card:hover .arrow-icon { color: var(--cor-primaria); transform: translateX(5px); }
 
-        /* Views */
         .view { display: none; flex-direction: column; min-height: 100vh; background-color: white; }
         .view.active { display: flex; animation: fadeIn 0.4s ease-out; }
         
@@ -173,7 +166,7 @@
             border-bottom: 1px solid #f0f0f0;
         }
 
-        .page-title { flex-grow: 1; text-align: center; font-weight: 700; color: var(--cor-texto); margin-right: 24px; }
+        .page-title { flex-grow: 1; text-align: center; font-weight: 700; color: var(--cor-primaria); margin-right: 24px; }
         .btn-voltar { background: none; border: none; color: var(--cor-primaria); font-weight: 600; display: flex; align-items: center; gap: 5px; cursor: pointer; }
 
         .page-content-wrapper { flex-grow: 1; display: flex; flex-direction: column; justify-content: center; padding: 20px; }
@@ -187,7 +180,6 @@
         .feature-list li { padding: 12px 0; border-bottom: 1px solid #f5f5f5; display: flex; align-items: flex-start; color: #555; }
         .feature-list svg { margin-right: 10px; color: var(--cor-primaria); width: 20px; height: 20px; flex-shrink: 0; }
 
-        /* Botões */
         .btn-action {
             display: flex; align-items: center; justify-content: center; width: 100%; padding: 16px;
             border-radius: var(--radius-btn); font-weight: 700; text-decoration: none;
@@ -198,10 +190,8 @@
         .btn-outline { background: white; border: 2px solid var(--cor-primaria); color: var(--cor-primaria); }
         .btn-whatsapp { background: #25D366; color: white; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2); }
 
-        /* Footer */
         .mini-footer { text-align: center; font-size: 0.75rem; color: #bbb; background-color: #f9f9f9; padding: 30px 20px; margin-top: auto; }
 
-        /* Botão Flutuante Pílula */
         .float-wa {
             position: fixed; bottom: 25px; right: 25px;
             background-color: #25D366; color: white;
@@ -242,19 +232,19 @@
             <nav class="menu-grid" style="flex-grow: 1;">
                 
                 <!-- 1º Card: Atacado -->
-                <div class="menu-card full-width" onclick="navigateTo('view-atacado'); trackClick('select_content', 'Atacado_Home')">
+                <div class="menu-card full-width" onclick="navigateTo('view-atacado')">
                     <div class="icon-box">
                         <svg width="24" height="24" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
                     </div>
                     <div style="flex-grow:1; margin-left:15px;">
-                        <h3 style="color: var(--cor-primaria); font-size:1.1rem;">Catálogo Atacado</h3>
+                        <h3>Catálogo Atacado</h3>
                         <span>Compre pelo nosso catálogo online</span>
                     </div>
                     <svg class="arrow-icon" width="20" height="20"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </div>
 
                 <!-- 2º Card: C4 Franquias -->
-                <div class="menu-card" onclick="navigateTo('view-franquias'); trackClick('select_content', 'Franquias_Home')">
+                <div class="menu-card" onclick="navigateTo('view-franquias')">
                     <div class="icon-box">
                         <svg width="24" height="24" viewBox="0 0 24 24"><path d="M3 21h18"></path><rect x="5" y="7" width="14" height="14"></rect><path d="M5 7l7-4 7 4"></path></svg>
                     </div>
@@ -263,7 +253,7 @@
                 </div>
 
                 <!-- 3º Card: Personalização -->
-                <div class="menu-card" onclick="navigateTo('view-personalizacao'); trackClick('select_content', 'Personalizacao_Home')">
+                <div class="menu-card" onclick="navigateTo('view-personalizacao')">
                     <div class="icon-box">
                         <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
                     </div>
@@ -275,7 +265,7 @@
                 <div class="menu-separator">Nossos Sistemas</div>
 
                 <!-- 4º Card: Lucro Certo -->
-                <div class="menu-card" onclick="navigateTo('view-lucro-certo'); trackClick('select_content', 'LucroCerto_Home')">
+                <div class="menu-card" onclick="navigateTo('view-lucro-certo')">
                     <div class="icon-box">
                         <svg width="24" height="24" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
                     </div>
@@ -284,7 +274,7 @@
                 </div>
 
                 <!-- 5º Card: Cjota Indica -->
-                <div class="menu-card" onclick="navigateTo('view-cj-indica'); trackClick('select_content', 'CjotaIndica_Home')">
+                <div class="menu-card" onclick="navigateTo('view-cj-indica')">
                     <div class="icon-box">
                         <svg width="24" height="24" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
                     </div>
@@ -296,7 +286,7 @@
                 <div class="menu-separator">Atendimento</div>
 
                 <!-- 6º Card: WhatsApp -->
-                <div class="menu-card" onclick="navigateTo('view-whatsapp'); trackClick('select_content', 'WhatsApp_Home')">
+                <div class="menu-card" onclick="navigateTo('view-whatsapp')">
                     <div class="icon-box">
                         <svg width="24" height="24" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                     </div>
@@ -305,7 +295,7 @@
                 </div>
 
                 <!-- 7º Card: Grupo VIP -->
-                <div class="menu-card" onclick="navigateTo('view-vip'); trackClick('select_content', 'VIP_Home')">
+                <div class="menu-card" onclick="navigateTo('view-vip')">
                     <div class="icon-box">
                         <svg width="24" height="24" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                     </div>
@@ -314,12 +304,12 @@
                 </div>
 
                 <!-- 8º Card: Loja -->
-                <div class="menu-card full-width" onclick="navigateTo('view-loja'); trackClick('select_content', 'Loja_Home')">
+                <div class="menu-card full-width" onclick="navigateTo('view-loja')">
                     <div class="icon-box">
                         <svg width="24" height="24" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                     </div>
                     <div style="flex-grow:1; margin-left:15px;">
-                        <h3 style="font-size:1rem; color: var(--cor-primaria);">Nossa Loja Física</h3>
+                        <h3>Nossa Loja Física</h3>
                         <span>Visite nosso showroom em Goiânia</span>
                     </div>
                     <svg class="arrow-icon" width="20" height="20"><polyline points="9 18 15 12 9 6"></polyline></svg>
@@ -344,7 +334,7 @@
 
             <div class="page-content-wrapper">
                 <div class="content-box">
-                    <h2 style="color:var(--cor-primaria); margin-bottom:10px;">Atacado Cjota</h2>
+                    <h2>Atacado Cjota</h2>
                     <p>Lucre revendendo calçados direto da fábrica com alta qualidade e preço justo.</p>
                     
                     <ul class="feature-list">
@@ -355,12 +345,12 @@
                     </ul>
                 </div>
 
-                <a href="https://cjotarasteirinhas.com.br/?cupom=PRIMEIRACOMPRA" target="_blank" class="btn-action btn-primary" onclick="trackClick('click_catalogo', 'Pagina_Atacado')">
+                <a href="https://cjotarasteirinhas.com.br/?cupom=PRIMEIRACOMPRA" target="_blank" class="btn-action btn-primary" onclick="trackClick('clique_catalogo', {'local': 'pagina_atacado'})">
                     <svg width="20" height="20" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
                     Acessar Catálogo
                 </a>
                 
-                <a href="https://wa.me/5562981480687?text=Quero%20tirar%20dúvidas%20sobre%20o%20Atacado" target="_blank" class="btn-action btn-outline" onclick="trackClick('click_whatsapp', 'Pagina_Atacado')">
+                <a href="https://wa.me/5562981480687?text=Quero%20tirar%20dúvidas%20sobre%20o%20Atacado" target="_blank" class="btn-action btn-outline" onclick="trackClick('clique_whatsapp', {'local': 'pagina_atacado'})">
                     Falar no WhatsApp
                 </a>
             </div>
@@ -377,7 +367,7 @@
 
             <div class="page-content-wrapper">
                 <div class="content-box">
-                    <h2 style="color:var(--cor-primaria); margin-bottom:10px;">Sua Loja Virtual Pronta</h2>
+                    <h2>Sua Loja Virtual Pronta</h2>
                     <p>Tenha seu próprio site profissional já abastecido com todos os produtos Cjota. Venda por encomenda sem investir em estoque.</p>
                     
                     <ul class="feature-list">
@@ -388,12 +378,12 @@
                     </ul>
                 </div>
 
-                <a href="https://c4franquias.com/" target="_blank" class="btn-action btn-primary" onclick="trackClick('click_site_franquias', 'Pagina_Franquias')">
+                <a href="https://c4franquias.com/" target="_blank" class="btn-action btn-primary" onclick="trackClick('clique_site_externo', {'destino': 'c4_franquias'})">
                     <svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
                     Acessar Site Oficial
                 </a>
 
-                <a href="https://wa.me/5562981480687?text=Ol%C3%A1%2C%20tenho%20d%C3%BAvidas%20sobre%20a%20C4%20Franquias" target="_blank" class="btn-action btn-outline" onclick="trackClick('click_whatsapp', 'Pagina_Franquias')">
+                <a href="https://wa.me/5562981480687?text=Ol%C3%A1%2C%20tenho%20d%C3%BAvidas%20sobre%20a%20C4%20Franquias" target="_blank" class="btn-action btn-outline" onclick="trackClick('clique_whatsapp', {'local': 'pagina_franquias'})">
                     <svg width="20" height="20" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                     Tirar Dúvidas no WhatsApp
                 </a>
@@ -411,7 +401,7 @@
 
             <div class="page-content-wrapper">
                 <div class="content-box">
-                    <h2 style="color:var(--cor-primaria); margin-bottom:10px;">Sua Personalização</h2>
+                    <h2>Sua Personalização</h2>
                     <p>Produzimos rasteirinhas com a sua marca aplicada. Ideal para lojas, marcas próprias e empreendedoras que desejam vender com identidade própria.</p>
                     
                     <ul class="feature-list">
@@ -423,7 +413,7 @@
                     </ul>
                 </div>
 
-                <a href="https://wa.me/5562981480687?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20Personaliza%C3%A7%C3%A3o%20de%20Logomarca%20(M%C3%ADnimo%202%20grades)" target="_blank" class="btn-action btn-whatsapp" onclick="trackClick('click_whatsapp', 'Pagina_Personalizacao')">
+                <a href="https://wa.me/5562981480687?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20Personaliza%C3%A7%C3%A3o%20de%20Logomarca%20(M%C3%ADnimo%202%20grades)" target="_blank" class="btn-action btn-whatsapp" onclick="trackClick('clique_whatsapp', {'local': 'pagina_personalizacao'})">
                     <svg width="20" height="20" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                     Falar sobre Personalização
                 </a>
@@ -441,7 +431,7 @@
 
             <div class="page-content-wrapper">
                 <div class="content-box">
-                    <h2 style="color:var(--cor-primaria); margin-bottom:10px;">Gestão Completa para Empreendedoras</h2>
+                    <h2>Gestão Completa para Empreendedoras</h2>
                     <p>Muito mais que precificação: um sistema que organiza sua empresa e transforma seu estoque em vendas.</p>
                     
                     <ul class="feature-list">
@@ -452,12 +442,12 @@
                     </ul>
                 </div>
 
-                <a href="https://sistemalucrocerto.com/" target="_blank" class="btn-action btn-primary" onclick="trackClick('click_site_lucro', 'Pagina_LucroCerto')">
+                <a href="https://sistemalucrocerto.com/" target="_blank" class="btn-action btn-primary" onclick="trackClick('clique_site_externo', {'destino': 'lucro_certo'})">
                     <svg width="20" height="20" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
                     Conhecer o Sistema
                 </a>
 
-                <a href="https://wa.me/5562981480687?text=Quero%20saber%20mais%20sobre%20o%20Sistema%20Lucro%20Certo" target="_blank" class="btn-action btn-outline" onclick="trackClick('click_whatsapp', 'Pagina_LucroCerto')">
+                <a href="https://wa.me/5562981480687?text=Quero%20saber%20mais%20sobre%20o%20Sistema%20Lucro%20Certo" target="_blank" class="btn-action btn-outline" onclick="trackClick('clique_whatsapp', {'local': 'pagina_lucro_certo'})">
                     <svg width="20" height="20" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                     Tirar Dúvidas no WhatsApp
                 </a>
@@ -475,7 +465,7 @@
 
             <div class="page-content-wrapper">
                 <div class="content-box">
-                    <h2 style="color:var(--cor-primaria); margin-bottom:10px;">Receba Mais Rápido</h2>
+                    <h2>Receba Mais Rápido</h2>
                     <p>Encontre as melhores opções de envio saindo direto de Goiânia para sua cidade.</p>
                     
                     <ul class="feature-list">
@@ -486,7 +476,7 @@
                     </ul>
                 </div>
 
-                <a href="https://cjotaindica.netlify.app/" target="_blank" class="btn-action btn-primary" onclick="trackClick('click_site_cjindica', 'Pagina_CjotaIndica')">
+                <a href="https://cjotaindica.netlify.app/" target="_blank" class="btn-action btn-primary" onclick="trackClick('clique_site_externo', {'destino': 'cjota_indica'})">
                     <svg width="20" height="20" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                     Acessar Lista de Envios
                 </a>
@@ -508,19 +498,19 @@
                     <p>Escolha o assunto para agilizar seu atendimento:</p>
                 </div>
 
-                <a href="https://wa.me/5562981480687?text=Ol%C3%A1,%20tenho%20interesse%20no%20Atacado%20Sortido" target="_blank" class="btn-action btn-outline" onclick="trackClick('click_whatsapp_option', 'Opcao_AtacadoSortido')">
+                <a href="https://wa.me/5562981480687?text=Ol%C3%A1,%20tenho%20interesse%20no%20Atacado%20Sortido" target="_blank" class="btn-action btn-outline" onclick="trackClick('clique_whatsapp_option', {'opcao': 'atacado_sortido'})">
                     Atacado Sortido
                 </a>
-                <a href="https://wa.me/5562981480687?text=Ol%C3%A1,%20quero%20saber%20sobre%20Logomarca" target="_blank" class="btn-action btn-outline" onclick="trackClick('click_whatsapp_option', 'Opcao_Logomarca')">
+                <a href="https://wa.me/5562981480687?text=Ol%C3%A1,%20quero%20saber%20sobre%20Logomarca" target="_blank" class="btn-action btn-outline" onclick="trackClick('clique_whatsapp_option', {'opcao': 'logomarca'})">
                     Atacado com Logomarca
                 </a>
-                <a href="https://wa.me/5562981480687?text=Gostaria%20de%20saber%20sobre%20meu%20pedido" target="_blank" class="btn-action btn-outline" onclick="trackClick('click_whatsapp_option', 'Opcao_Pedido')">
+                <a href="https://wa.me/5562981480687?text=Gostaria%20de%20saber%20sobre%20meu%20pedido" target="_blank" class="btn-action btn-outline" onclick="trackClick('clique_whatsapp_option', {'opcao': 'pedido'})">
                     Pedido em Andamento
                 </a>
-                <a href="https://wa.me/5562981480687?text=Tenho%20interesse%20na%20Franquia" target="_blank" class="btn-action btn-outline" onclick="trackClick('click_whatsapp_option', 'Opcao_Franquia')">
+                <a href="https://wa.me/5562981480687?text=Tenho%20interesse%20na%20Franquia" target="_blank" class="btn-action btn-outline" onclick="trackClick('clique_whatsapp_option', {'opcao': 'franquia'})">
                     Franquias
                 </a>
-                <a href="https://wa.me/5562981480687?text=Tenho%20outras%20d%C3%BAvidas" target="_blank" class="btn-action btn-outline" onclick="trackClick('click_whatsapp_option', 'Opcao_OutrasDuvidas')">
+                <a href="https://wa.me/5562981480687?text=Tenho%20outras%20d%C3%BAvidas" target="_blank" class="btn-action btn-outline" onclick="trackClick('clique_whatsapp_option', {'opcao': 'outras_duvidas'})">
                     Outras Dúvidas
                 </a>
             </div>
@@ -551,7 +541,7 @@
                     Loja 665, St. Central, Goiânia - GO</p>
                 </div>
 
-                <a href="https://maps.app.goo.gl/nnQ4m6586yLRTDbj9" target="_blank" class="btn-action btn-primary" onclick="trackClick('click_maps', 'Pagina_Loja')">
+                <a href="https://maps.app.goo.gl/nnQ4m6586yLRTDbj9" target="_blank" class="btn-action btn-primary" onclick="trackClick('clique_mapa', {'local': 'pagina_loja'})">
                     <svg width="20" height="20" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                     Abrir no Google Maps
                 </a>
@@ -574,7 +564,7 @@
                 <h2>Grupo Exclusivo</h2>
                 <p>Receba lançamentos, promoções relâmpago e conteúdo exclusivo para revendedoras em primeira mão.</p>
                 
-                <a href="https://chat.whatsapp.com/BPF1N1xJjLo13k97rgOq3X" target="_blank" class="btn-action btn-primary" style="margin-top:20px;" onclick="trackClick('click_grupo_vip', 'Pagina_VIP')">
+                <a href="https://chat.whatsapp.com/BPF1N1xJjLo13k97rgOq3X" target="_blank" class="btn-action btn-primary" style="margin-top:20px;" onclick="trackClick('clique_grupo_vip', {'local': 'pagina_vip'})">
                     Entrar no Grupo VIP
                 </a>
             </div>
@@ -583,7 +573,7 @@
     </div>
 
     <!-- Botão WhatsApp Flutuante com Texto -->
-    <a href="https://wa.me/5562981480687?text=Ol%C3%A1%2C%20estou%20no%20site%20e%20gostaria%20de%20atendimento." target="_blank" class="float-wa" onclick="trackClick('click_whatsapp_flutuante', 'Home_Geral')">
+    <a href="https://wa.me/5562981480687?text=Ol%C3%A1%2C%20estou%20no%20site%20e%20gostaria%20de%20atendimento." target="_blank" class="float-wa" onclick="trackClick('clique_whatsapp', {'local': 'botao_flutuante'})">
         <svg width="24" height="24" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
         Fale Conosco
     </a>
@@ -608,12 +598,18 @@
                 target.classList.add('active');
                 window.scrollTo(0,0); // Rola para o topo
                 
-                // Track screen view no Analytics
+                // GA4 Virtual Pageview
+                const screenName = viewId.replace('view-', '');
+                const pageTitle = 'Cjota - ' + screenName.charAt(0).toUpperCase() + screenName.slice(1);
+                const pagePath = '/' + screenName;
+
                 if (typeof gtag === 'function') {
-                    gtag('event', 'screen_view', {
-                        'screen_name': viewId.replace('view-', ''),
-                        'app_name': 'Cjota Mini-Site'
+                    gtag('event', 'page_view', {
+                        page_title: pageTitle,
+                        page_path: pagePath,
+                        page_location: window.location.href + '#' + screenName
                     });
+                    console.log('📢 PageView registrado:', pagePath);
                 }
             }
         }
