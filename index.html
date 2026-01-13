@@ -9,79 +9,45 @@
       gtag('js', new Date());
 
       gtag('config', 'G-QV7XWJHTW9');
+
+      // Rastreamento de Cliques
+      function trackClick(eventName, eventLabel) {
+          if(typeof gtag === 'function'){
+              gtag('event', eventName, {
+                  'event_category': 'Clique',
+                  'event_label': eventLabel,
+                  'transport_type': 'beacon'
+              });
+          }
+      }
     </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <!-- ================= SEO & METADADOS ================= -->
-    <title>CJOTA Rasteirinhas | Fábrica de Calçados Atacado e Personalizados</title>
-    <meta name="description" content="Fábrica de rasteirinhas femininas em Goiânia. Venda EXCLUSIVA no atacado para revenda. Lucro de até 150%. Personalizamos com sua logomarca.">
-    <meta name="keywords" content="rasteirinhas atacado, fábrica de calçados, calçados femininos goiânia, revenda de calçados, rasteirinhas personalizadas, marca própria calçados, franquia de calçados, atacado de sapatos, cjota">
-    <meta name="author" content="CJOTA Rasteirinhas">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph -->
-    <meta property="og:site_name" content="CJOTA Rasteirinhas">
-    <meta property="og:title" content="CJOTA Rasteirinhas | Fábrica e Atacado">
-    <meta property="og:description" content="Site exclusivo para Lojistas e Revendedoras. Lucre até 150% revendendo direto da fábrica.">
+    <!-- Metadados -->
+    <title>Cjota Rasteirinhas | Fábrica de Calçados Atacado</title>
+    <meta name="description" content="Fábrica de rasteirinhas femininas em Goiânia. Venda EXCLUSIVA no atacado. Lucro de até 150%.">
     <meta property="og:image" content="https://i.ibb.co/kRKzZCt/logoo-1.png">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="pt_BR">
-    <meta property="og:url" content="https://cjotarasteirinhas.com.br"> 
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="CJOTA Rasteirinhas | Fábrica e Atacado">
-    <meta name="twitter:description" content="Site exclusivo para Lojistas e Revendedoras. Lucre até 150% revendendo direto da fábrica.">
-    <meta name="twitter:image" content="https://i.ibb.co/kRKzZCt/logoo-1.png">
-
-    <!-- Schema.org -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WholesaleStore",
-      "name": "CJOTA Rasteirinhas",
-      "image": "https://i.ibb.co/kRKzZCt/logoo-1.png",
-      "description": "Fábrica de rasteirinhas femininas em Goiânia focada exclusivamente em atacado B2B.",
-      "telephone": "+5562981480687",
-      "priceRange": "$$",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Corredor Aracaju - Shopping Centro Oeste Outlet, Loja 665, St. Central",
-        "addressLocality": "Goiânia",
-        "addressRegion": "GO",
-        "postalCode": "74000-000",
-        "addressCountry": "BR"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": -16.6800,
-        "longitude": -49.2500
-      }
-    }
-    </script>
-
+    
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💖</text></svg>">
-    <meta name="theme-color" content="#DC2EDA">
 
-    <!-- Fonte Inter -->
+    <!-- Fonte -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- Configurações Globais --- */
+        /* --- ESTILO ORIGINAL (RESTAURADO) --- */
         :root {
             --cor-primaria: #DC2EDA;
-            --cor-primaria-dark: #b01baf; 
             --cor-secundaria: #f2ea22;
-            --cor-fundo: #f4f6f8; 
+            --cor-fundo: #f4f6f8;
             --cor-texto: #1a1a1a;
             --cor-texto-suave: #666666;
             --sombra-card: 0 10px 30px -5px rgba(0,0,0,0.08);
-            --radius-card: 24px;
+            --radius-card: 20px;
             --radius-btn: 50px;
         }
 
@@ -91,306 +57,170 @@
             font-family: 'Inter', sans-serif;
             background-color: #eef2f5;
             color: var(--cor-texto);
-            min-height: 100vh;
-            /* CORREÇÃO DE SCROLL: Removido display flex do body */
             display: block; 
+            min-height: 100vh;
         }
 
-        /* --- Container App Mobile --- */
         #app-container {
             width: 100%;
             max-width: 480px;
-            background-color: var(--cor-fundo);
+            background-color: #ffffff; /* Fundo Branco Original */
             min-height: 100vh;
             position: relative;
             box-shadow: 0 0 50px rgba(0,0,0,0.08);
-            /* CORREÇÃO DE SCROLL: Centralização via margin */
             margin: 0 auto; 
             display: flex;
             flex-direction: column;
-            overflow-x: hidden; /* Mantém apenas horizontal escondido */
+            overflow-x: hidden;
         }
 
-        /* --- Utilitários --- */
+        /* Tipografia Original */
+        h1 { color: var(--cor-primaria); line-height: 1.2; font-weight: 800; font-size: 1.7rem; letter-spacing: -0.5px; }
+        h2 { color: var(--cor-texto-suave); font-weight: 600; font-size: 0.95rem; }
+        h3 { color: #333; font-weight: 700; font-size: 0.95rem; margin: 0; }
+        p { color: var(--cor-texto-suave); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem; }
+
+        /* Utilitários */
         .hidden { display: none !important; }
         .text-center { text-align: center; }
         .mb-2 { margin-bottom: 1rem; }
-        
-        h1, h2, h3 { color: var(--cor-texto); line-height: 1.2; }
-        p { color: var(--cor-texto-suave); font-size: 0.95rem; line-height: 1.5; margin-bottom: 1rem; }
 
-        /* --- Header Navegação --- */
-        .nav-header {
-            display: flex;
-            align-items: center;
-            padding: 15px 20px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
-        }
-
-        .btn-voltar {
-            background: none;
-            border: none;
-            color: var(--cor-primaria);
-            font-weight: 600;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            cursor: pointer;
-        }
-
-        .page-title {
-            flex-grow: 1;
-            text-align: center;
-            font-weight: 700;
-            font-size: 1rem;
-            margin-right: 60px;
-            color: var(--cor-texto);
-        }
-
-        /* --- Views --- */
-        .view {
-            display: none;
-            flex-direction: column;
-            min-height: 100vh;
-            background-color: var(--cor-fundo);
-        }
-        
-        .view.active { display: flex; animation: fadeIn 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .page-content-wrapper {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 25px 20px 40px;
-        }
-
-        /* --- HOME Header --- */
+        /* Header Home */
         #home-header {
             text-align: center;
-            padding: 40px 20px 25px;
+            padding: 40px 20px 20px;
             background: white;
-            border-bottom-left-radius: 35px;
-            border-bottom-right-radius: 35px;
-            box-shadow: 0 10px 40px rgba(220, 46, 218, 0.08); /* Sombra suave rosa */
-            margin-bottom: 25px;
-            position: relative;
-            z-index: 10;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            box-shadow: 0 10px 40px rgba(220, 46, 218, 0.08);
+            margin-bottom: 20px;
         }
 
         .logo-area {
-            width: 110px;
-            height: 110px;
-            margin: 0 auto 15px;
-            border-radius: 50%;
-            padding: 4px;
+            width: 110px; height: 110px; margin: 0 auto 15px;
+            border-radius: 50%; padding: 4px;
             background: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
             box-shadow: 0 10px 25px rgba(220, 46, 218, 0.25);
         }
         .logo-img { width: 100%; height: 100%; border-radius: 50%; border: 3px solid white; background: white; object-fit: cover; }
 
-        .home-title { font-size: 1.7rem; font-weight: 800; color: var(--cor-primaria); margin-bottom: 5px; letter-spacing: -0.5px; }
-        .home-subtitle { font-size: 0.95rem; font-weight: 600; color: var(--cor-texto-suave); margin-bottom: 8px; }
-        
-        /* Texto B2B Clean */
         .b2b-text { 
-            font-size: 0.8rem; 
-            color: var(--cor-primaria); 
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 10px;
+            font-size: 0.75rem; color: var(--cor-primaria); font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px;
+            background: rgba(220, 46, 218, 0.08); display: inline-block;
+            padding: 4px 10px; border-radius: 12px;
         }
 
         .home-desc { 
-            font-size: 0.8rem; 
-            color: #666; 
-            background: #f5f5f5; 
-            display: inline-block; 
-            padding: 6px 14px; 
-            border-radius: 20px;
-            font-weight: 500;
-            margin-top: 5px;
+            font-size: 0.8rem; color: #666; background: #f5f5f5;
+            display: inline-block; padding: 6px 14px; border-radius: 20px;
+            font-weight: 500; margin-top: 5px;
         }
 
-        .cupom-banner {
-            background: linear-gradient(135deg, #fffde7, #fff59d);
-            color: #f57f17;
-            padding: 12px;
-            border-radius: 12px;
-            text-align: center;
-            font-size: 0.9rem;
-            font-weight: 700;
-            margin: 20px 0 5px;
-            border: 1px dashed #fbc02d;
-            box-shadow: 0 4px 15px rgba(249, 168, 37, 0.15);
-        }
-
-        /* --- GRID DE CARDS --- */
+        /* Grid de Menu */
         .menu-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            padding: 0 20px 30px;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 0 20px 30px;
         }
 
-        /* Divisores de Seção */
         .menu-separator {
-            grid-column: 1 / -1;
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: #999;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin: 15px 0 5px;
-            padding-left: 10px;
-            border-left: 3px solid var(--cor-primaria);
-            display: flex;
-            align-items: center;
+            grid-column: 1 / -1; font-size: 0.75rem; font-weight: 700; color: #bbb;
+            text-transform: uppercase; letter-spacing: 1px; margin: 20px 0 5px; text-align: center;
         }
 
+        /* Card Original (Com efeito de pulo padrão) */
         .menu-card {
-            background: white;
-            border-radius: var(--radius-card);
-            padding: 22px 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            gap: 14px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: var(--sombra-card);
+            background: white; border-radius: var(--radius-card); padding: 20px 15px;
+            display: flex; flex-direction: column; align-items: center; text-align: center;
+            gap: 12px; cursor: pointer; transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #f0f0f0;
             position: relative;
-            border: 1px solid rgba(255,255,255,0.5); /* Borda sutil */
         }
 
         .menu-card:active { transform: scale(0.98); }
-        .menu-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.12); }
+        .menu-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
 
         .menu-card.full-width { 
-            grid-column: span 2; 
-            flex-direction: row; 
-            text-align: left; 
-            padding: 20px 24px;
-            background: linear-gradient(to bottom right, #ffffff, #fafafa);
+            grid-column: span 2; flex-direction: row; text-align: left; padding: 18px 24px;
+            background: linear-gradient(to right, #ffffff, #fafafa);
         }
 
-        /* Ícone Vibrante - Agora Unificado na Cor da Marca */
         .icon-box {
-            width: 54px; height: 54px;
-            border-radius: 16px;
+            width: 50px; height: 50px; border-radius: 14px;
             display: flex; align-items: center; justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            flex-shrink: 0;
-            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            color: white; font-size: 1.5rem; flex-shrink: 0;
+            /* Degradê Rosa Vibrante Original */
+            background: linear-gradient(135deg, var(--cor-primaria), #b01baf);
+            box-shadow: 0 6px 15px rgba(220, 46, 218, 0.25);
             transition: transform 0.3s ease;
         }
+        
         .menu-card:hover .icon-box { transform: scale(1.1) rotate(5deg); }
 
-        /* Gradientes Unificados (Identidade Visual da Marca) */
-        .bg-atacado, .bg-franquias, .bg-personalizacao, .bg-lucro, 
-        .bg-whatsapp, .bg-vip, .bg-indica, .bg-loja { 
-            /* Gradiente da Cor Principal (#DC2EDA) para um toque Dourado/Secundário (#d4b000) no final */
-            background: linear-gradient(135deg, var(--cor-primaria) 10%, #d4b000 150%);
-            color: white;
-            box-shadow: 0 8px 20px rgba(220, 46, 218, 0.25);
-        }
-
-        .menu-card h3 { font-size: 0.95rem; font-weight: 700; margin: 0; color: #333; }
-        .menu-card span { font-size: 0.75rem; color: #888; font-weight: 500; display: block; line-height: 1.3; }
-
-        /* Seta nos cards largos */
+        .menu-card span { font-size: 0.75rem; color: #888; font-weight: 500; display: block; margin-top: 2px; }
         .arrow-icon { margin-left: auto; color: #ddd; transition: 0.3s; }
         .menu-card:hover .arrow-icon { color: var(--cor-primaria); transform: translateX(5px); }
 
-        /* --- Componentes Internos --- */
-        .content-box {
-            background: white;
-            border-radius: 24px;
-            padding: 30px 25px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
-            margin-bottom: 25px;
+        /* Views */
+        .view { display: none; flex-direction: column; min-height: 100vh; background-color: white; }
+        .view.active { display: flex; animation: fadeIn 0.4s ease-out; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .nav-header {
+            display: flex; align-items: center; padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
+            position: sticky; top: 0; z-index: 100;
+            border-bottom: 1px solid #f0f0f0;
         }
 
-        .feature-list { list-style: none; margin: 20px 0 10px; }
-        .feature-list li {
-            padding: 14px 0;
-            border-bottom: 1px solid #f0f0f0;
-            display: flex;
-            align-items: flex-start;
-            font-size: 0.95rem;
-            color: #444;
-            line-height: 1.4;
+        .page-title { flex-grow: 1; text-align: center; font-weight: 700; color: var(--cor-texto); margin-right: 24px; }
+        .btn-voltar { background: none; border: none; color: var(--cor-primaria); font-weight: 600; display: flex; align-items: center; gap: 5px; cursor: pointer; }
+
+        .page-content-wrapper { flex-grow: 1; display: flex; flex-direction: column; justify-content: center; padding: 20px; }
+
+        .content-box {
+            background: white; border-radius: 20px; padding: 25px;
+            box-shadow: var(--sombra-card); border: 1px solid #f5f5f5; margin-bottom: 25px;
         }
-        .feature-list li:last-child { border-bottom: none; }
-        .feature-list svg { margin-right: 12px; color: var(--cor-primaria); width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px; }
+
+        .feature-list { list-style: none; margin: 20px 0; }
+        .feature-list li { padding: 12px 0; border-bottom: 1px solid #f5f5f5; display: flex; align-items: flex-start; color: #555; }
+        .feature-list svg { margin-right: 10px; color: var(--cor-primaria); width: 20px; height: 20px; flex-shrink: 0; }
 
         /* Botões */
         .btn-action {
-            display: flex; align-items: center; justify-content: center;
-            width: 100%; padding: 18px;
-            border-radius: var(--radius-btn);
-            font-weight: 700; text-decoration: none;
-            margin-bottom: 12px; transition: 0.3s;
-            font-size: 1rem; gap: 10px;
+            display: flex; align-items: center; justify-content: center; width: 100%; padding: 16px;
+            border-radius: var(--radius-btn); font-weight: 700; text-decoration: none;
+            margin-bottom: 12px; transition: 0.2s; font-size: 0.95rem; gap: 10px;
         }
-        .btn-primary { background: var(--cor-primaria); color: white; box-shadow: 0 8px 25px rgba(220, 46, 218, 0.3); }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(220, 46, 218, 0.4); }
+        .btn-primary { background: var(--cor-primaria); color: white; box-shadow: 0 4px 15px rgba(220, 46, 218, 0.2); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(220, 46, 218, 0.3); }
         .btn-outline { background: white; border: 2px solid var(--cor-primaria); color: var(--cor-primaria); }
-        .btn-whatsapp { background: #25D366; color: white; box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3); }
+        .btn-whatsapp { background: #25D366; color: white; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2); }
 
-        /* SVGs */
-        svg { stroke-width: 2; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
-        
-        .mini-footer {
-            text-align: center; font-size: 0.75rem; color: #aaa;
-            background-color: var(--cor-fundo); padding: 30px 20px; margin-top: auto;
-        }
+        /* Footer */
+        .mini-footer { text-align: center; font-size: 0.75rem; color: #bbb; background-color: #f9f9f9; padding: 30px 20px; margin-top: auto; }
 
-        /* Ícone WhatsApp Flutuante com Texto */
+        /* Botão Flutuante Pílula */
         .float-wa {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background-color: #25D366;
-            color: white;
-            border-radius: 50px; /* Formato Pílula */
-            padding: 12px 24px; /* Espaço interno */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px; /* Espaço entre ícone e texto */
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-            z-index: 1000;
-            transition: all 0.3s ease;
-            animation: bounce 2.5s infinite;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.95rem;
+            position: fixed; bottom: 25px; right: 25px;
+            background-color: #25D366; color: white;
+            border-radius: 50px; padding: 12px 24px;
+            display: flex; align-items: center; gap: 8px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            z-index: 1000; text-decoration: none; font-weight: 700; font-size: 0.9rem;
+            transition: transform 0.2s;
+            animation: bounce 2s infinite;
         }
-        .float-wa:hover {
-            transform: scale(1.05);
-            background-color: #128C7E;
-        }
+        .float-wa:hover { transform: scale(1.05); }
+
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
             40% {transform: translateY(-6px);}
             60% {transform: translateY(-3px);}
         }
+
+        svg { stroke-width: 2; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
     </style>
 </head>
 <body>
@@ -401,9 +231,9 @@
         <div id="view-home" class="view active">
             <header id="home-header">
                 <div class="logo-area">
-                    <img src="https://i.ibb.co/kRKzZCt/logoo-1.png" alt="CJOTA" class="logo-img" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiBmaWxsPSIjZGVkZWRlIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI1MCIvPjwvc3ZnPg=='">
+                    <img src="https://i.ibb.co/kRKzZCt/logoo-1.png" alt="Cjota" class="logo-img" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiBmaWxsPSIjZGVkZWRlIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI1MCIvPjwvc3ZnPg=='">
                 </div>
-                <h1 class="home-title">CJOTA Rasteirinhas</h1>
+                <h1 class="home-title">Cjota Rasteirinhas</h1>
                 <h2 class="home-subtitle">Fábrica de rasteirinhas femininas</h2>
                 <div class="b2b-text">Exclusivo para Lojistas e Revendedoras</div>
                 <div class="home-desc">Atacado • Personalização • Franquias</div>
@@ -411,63 +241,63 @@
 
             <nav class="menu-grid" style="flex-grow: 1;">
                 
-                <!-- 1º Card: Atacado (Destaque Principal) -->
-                <div class="menu-card full-width" onclick="navigateTo('view-atacado')">
-                    <div class="icon-box bg-atacado">
+                <!-- 1º Card: Atacado -->
+                <div class="menu-card full-width" onclick="navigateTo('view-atacado'); trackClick('select_content', 'Atacado_Home')">
+                    <div class="icon-box">
                         <svg width="24" height="24" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
                     </div>
                     <div style="flex-grow:1; margin-left:15px;">
                         <h3 style="color: var(--cor-primaria); font-size:1.1rem;">Catálogo Atacado</h3>
-                        <span>Modelos exclusivos para revenda</span>
+                        <span>Compre pelo nosso catálogo online</span>
                     </div>
                     <svg class="arrow-icon" width="20" height="20"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </div>
 
                 <!-- 2º Card: C4 Franquias -->
-                <div class="menu-card" onclick="navigateTo('view-franquias')">
-                    <div class="icon-box bg-franquias">
+                <div class="menu-card" onclick="navigateTo('view-franquias'); trackClick('select_content', 'Franquias_Home')">
+                    <div class="icon-box">
                         <svg width="24" height="24" viewBox="0 0 24 24"><path d="M3 21h18"></path><rect x="5" y="7" width="14" height="14"></rect><path d="M5 7l7-4 7 4"></path></svg>
                     </div>
                     <h3>C4 Franquias</h3>
-                    <span>Sua loja online pronta sem estoque</span>
+                    <span>Seja uma franqueada Cjota Rasteirinhas</span>
                 </div>
 
                 <!-- 3º Card: Personalização -->
-                <div class="menu-card" onclick="navigateTo('view-personalizacao')">
-                    <div class="icon-box bg-personalizacao">
+                <div class="menu-card" onclick="navigateTo('view-personalizacao'); trackClick('select_content', 'Personalizacao_Home')">
+                    <div class="icon-box">
                         <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
                     </div>
                     <h3>Sua Logomarca</h3>
-                    <span>Rasteirinhas com a sua marca</span>
+                    <span>Personalizamos as rasteirinhas com a sua logo</span>
                 </div>
 
                 <!-- Título Seção Apps -->
-                <div class="menu-separator">Conheça nossos Apps</div>
+                <div class="menu-separator">Nossos Sistemas</div>
 
                 <!-- 4º Card: Lucro Certo -->
-                <div class="menu-card" onclick="navigateTo('view-lucro-certo')">
-                    <div class="icon-box bg-lucro">
+                <div class="menu-card" onclick="navigateTo('view-lucro-certo'); trackClick('select_content', 'LucroCerto_Home')">
+                    <div class="icon-box">
                         <svg width="24" height="24" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
                     </div>
                     <h3>Sistema Lucro Certo</h3>
-                    <span>Gestão e precificação inteligente</span>
+                    <span>Gestão completa para empreendedoras</span>
                 </div>
 
-                <!-- 5º Card: CJ Indica -->
-                <div class="menu-card" onclick="navigateTo('view-cj-indica')">
-                    <div class="icon-box bg-indica">
+                <!-- 5º Card: Cjota Indica -->
+                <div class="menu-card" onclick="navigateTo('view-cj-indica'); trackClick('select_content', 'CjotaIndica_Home')">
+                    <div class="icon-box">
                         <svg width="24" height="24" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
                     </div>
-                    <h3>CJ Indica</h3>
-                    <span>Transportadoras e excursões</span>
+                    <h3>Cjota Indica</h3>
+                    <span>App de excursões</span>
                 </div>
 
                 <!-- Título Seção Atendimento -->
-                <div class="menu-separator">Atendimento & Comunidade</div>
+                <div class="menu-separator">Atendimento</div>
 
                 <!-- 6º Card: WhatsApp -->
-                <div class="menu-card" onclick="navigateTo('view-whatsapp')">
-                    <div class="icon-box bg-whatsapp">
+                <div class="menu-card" onclick="navigateTo('view-whatsapp'); trackClick('select_content', 'WhatsApp_Home')">
+                    <div class="icon-box">
                         <svg width="24" height="24" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                     </div>
                     <h3>Falar Conosco</h3>
@@ -475,8 +305,8 @@
                 </div>
 
                 <!-- 7º Card: Grupo VIP -->
-                <div class="menu-card" onclick="navigateTo('view-vip')">
-                    <div class="icon-box bg-vip">
+                <div class="menu-card" onclick="navigateTo('view-vip'); trackClick('select_content', 'VIP_Home')">
+                    <div class="icon-box">
                         <svg width="24" height="24" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                     </div>
                     <h3>Grupo VIP</h3>
@@ -484,12 +314,12 @@
                 </div>
 
                 <!-- 8º Card: Loja -->
-                <div class="menu-card full-width" onclick="navigateTo('view-loja')">
-                    <div class="icon-box bg-loja">
+                <div class="menu-card full-width" onclick="navigateTo('view-loja'); trackClick('select_content', 'Loja_Home')">
+                    <div class="icon-box">
                         <svg width="24" height="24" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                     </div>
                     <div style="flex-grow:1; margin-left:15px;">
-                        <h3 style="font-size:1rem;">Nossa Loja Física</h3>
+                        <h3 style="font-size:1rem; color: var(--cor-primaria);">Nossa Loja Física</h3>
                         <span>Visite nosso showroom em Goiânia</span>
                     </div>
                     <svg class="arrow-icon" width="20" height="20"><polyline points="9 18 15 12 9 6"></polyline></svg>
@@ -514,7 +344,7 @@
 
             <div class="page-content-wrapper">
                 <div class="content-box">
-                    <h2 style="color:var(--cor-primaria); margin-bottom:10px;">Atacado CJOTA</h2>
+                    <h2 style="color:var(--cor-primaria); margin-bottom:10px;">Atacado Cjota</h2>
                     <p>Lucre revendendo calçados direto da fábrica com alta qualidade e preço justo.</p>
                     
                     <ul class="feature-list">
@@ -525,12 +355,12 @@
                     </ul>
                 </div>
 
-                <a href="https://cjotarasteirinhas.com.br/?cupom=PRIMEIRACOMPRA" target="_blank" class="btn-action btn-primary">
+                <a href="https://cjotarasteirinhas.com.br/?cupom=PRIMEIRACOMPRA" target="_blank" class="btn-action btn-primary" onclick="trackClick('click_catalogo', 'Pagina_Atacado')">
                     <svg width="20" height="20" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
                     Acessar Catálogo
                 </a>
                 
-                <a href="https://wa.me/5562981480687?text=Quero%20tirar%20dúvidas%20sobre%20o%20Atacado" target="_blank" class="btn-action btn-outline">
+                <a href="https://wa.me/5562981480687?text=Quero%20tirar%20dúvidas%20sobre%20o%20Atacado" target="_blank" class="btn-action btn-outline" onclick="trackClick('click_whatsapp', 'Pagina_Atacado')">
                     Falar no WhatsApp
                 </a>
             </div>
@@ -548,7 +378,7 @@
             <div class="page-content-wrapper">
                 <div class="content-box">
                     <h2 style="color:var(--cor-primaria); margin-bottom:10px;">Sua Loja Virtual Pronta</h2>
-                    <p>Tenha seu próprio site profissional já abastecido com todos os produtos CJOTA. Venda por encomenda sem investir em estoque.</p>
+                    <p>Tenha seu próprio site profissional já abastecido com todos os produtos Cjota. Venda por encomenda sem investir em estoque.</p>
                     
                     <ul class="feature-list">
                         <li><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg> Site pronto com produtos cadastrados</li>
@@ -558,12 +388,12 @@
                     </ul>
                 </div>
 
-                <a href="https://c4franquias.com/" target="_blank" class="btn-action btn-primary">
+                <a href="https://c4franquias.com/" target="_blank" class="btn-action btn-primary" onclick="trackClick('click_site_franquias', 'Pagina_Franquias')">
                     <svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
                     Acessar Site Oficial
                 </a>
 
-                <a href="https://wa.me/5562981480687?text=Ol%C3%A1%2C%20tenho%20d%C3%BAvidas%20sobre%20a%20C4%20Franquias" target="_blank" class="btn-action btn-outline">
+                <a href="https://wa.me/5562981480687?text=Ol%C3%A1%2C%20tenho%20d%C3%BAvidas%20sobre%20a%20C4%20Franquias" target="_blank" class="btn-action btn-outline" onclick="trackClick('click_whatsapp', 'Pagina_Franquias')">
                     <svg width="20" height="20" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                     Tirar Dúvidas no WhatsApp
                 </a>
@@ -593,7 +423,7 @@
                     </ul>
                 </div>
 
-                <a href="https://wa.me/5562981480687?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20Personaliza%C3%A7%C3%A3o%20de%20Logomarca%20(M%C3%ADnimo%202%20grades)" target="_blank" class="btn-action btn-whatsapp">
+                <a href="https://wa.me/5562981480687?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20Personaliza%C3%A7%C3%A3o%20de%20Logomarca%20(M%C3%ADnimo%202%20grades)" target="_blank" class="btn-action btn-whatsapp" onclick="trackClick('click_whatsapp', 'Pagina_Personalizacao')">
                     <svg width="20" height="20" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                     Falar sobre Personalização
                 </a>
@@ -622,12 +452,12 @@
                     </ul>
                 </div>
 
-                <a href="https://sistemalucrocerto.com/" target="_blank" class="btn-action btn-primary">
+                <a href="https://sistemalucrocerto.com/" target="_blank" class="btn-action btn-primary" onclick="trackClick('click_site_lucro', 'Pagina_LucroCerto')">
                     <svg width="20" height="20" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
                     Conhecer o Sistema
                 </a>
 
-                <a href="https://wa.me/5562981480687?text=Quero%20saber%20mais%20sobre%20o%20Sistema%20Lucro%20Certo" target="_blank" class="btn-action btn-outline">
+                <a href="https://wa.me/5562981480687?text=Quero%20saber%20mais%20sobre%20o%20Sistema%20Lucro%20Certo" target="_blank" class="btn-action btn-outline" onclick="trackClick('click_whatsapp', 'Pagina_LucroCerto')">
                     <svg width="20" height="20" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                     Tirar Dúvidas no WhatsApp
                 </a>
@@ -640,7 +470,7 @@
                 <button class="btn-voltar" onclick="navigateTo('view-home')">
                     <svg width="20" height="20" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg> Voltar
                 </button>
-                <div class="page-title">CJ Indica</div>
+                <div class="page-title">Cjota Indica</div>
             </header>
 
             <div class="page-content-wrapper">
@@ -656,7 +486,7 @@
                     </ul>
                 </div>
 
-                <a href="https://cjotaindica.netlify.app/" target="_blank" class="btn-action btn-primary">
+                <a href="https://cjotaindica.netlify.app/" target="_blank" class="btn-action btn-primary" onclick="trackClick('click_site_cjindica', 'Pagina_CjotaIndica')">
                     <svg width="20" height="20" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                     Acessar Lista de Envios
                 </a>
@@ -678,19 +508,19 @@
                     <p>Escolha o assunto para agilizar seu atendimento:</p>
                 </div>
 
-                <a href="https://wa.me/5562981480687?text=Ol%C3%A1,%20tenho%20interesse%20no%20Atacado%20Sortido" target="_blank" class="btn-action btn-outline">
+                <a href="https://wa.me/5562981480687?text=Ol%C3%A1,%20tenho%20interesse%20no%20Atacado%20Sortido" target="_blank" class="btn-action btn-outline" onclick="trackClick('click_whatsapp_option', 'Opcao_AtacadoSortido')">
                     Atacado Sortido
                 </a>
-                <a href="https://wa.me/5562981480687?text=Ol%C3%A1,%20quero%20saber%20sobre%20Logomarca" target="_blank" class="btn-action btn-outline">
+                <a href="https://wa.me/5562981480687?text=Ol%C3%A1,%20quero%20saber%20sobre%20Logomarca" target="_blank" class="btn-action btn-outline" onclick="trackClick('click_whatsapp_option', 'Opcao_Logomarca')">
                     Atacado com Logomarca
                 </a>
-                <a href="https://wa.me/5562981480687?text=Gostaria%20de%20saber%20sobre%20meu%20pedido" target="_blank" class="btn-action btn-outline">
+                <a href="https://wa.me/5562981480687?text=Gostaria%20de%20saber%20sobre%20meu%20pedido" target="_blank" class="btn-action btn-outline" onclick="trackClick('click_whatsapp_option', 'Opcao_Pedido')">
                     Pedido em Andamento
                 </a>
-                <a href="https://wa.me/5562981480687?text=Tenho%20interesse%20na%20Franquia" target="_blank" class="btn-action btn-outline">
+                <a href="https://wa.me/5562981480687?text=Tenho%20interesse%20na%20Franquia" target="_blank" class="btn-action btn-outline" onclick="trackClick('click_whatsapp_option', 'Opcao_Franquia')">
                     Franquias
                 </a>
-                <a href="https://wa.me/5562981480687?text=Tenho%20outras%20d%C3%BAvidas" target="_blank" class="btn-action btn-outline">
+                <a href="https://wa.me/5562981480687?text=Tenho%20outras%20d%C3%BAvidas" target="_blank" class="btn-action btn-outline" onclick="trackClick('click_whatsapp_option', 'Opcao_OutrasDuvidas')">
                     Outras Dúvidas
                 </a>
             </div>
@@ -713,7 +543,7 @@
                         Seu navegador não suporta a exibição deste vídeo.
                     </video>
 
-                    <h3>CJOTA Física</h3>
+                    <h3>Cjota Física</h3>
                     <p>Venha nos visitar e conhecer a qualidade de perto.</p>
                     <hr style="border:0; border-top:1px solid #eee; margin:15px 0;">
                     <p><strong>Endereço:</strong><br>
@@ -721,7 +551,7 @@
                     Loja 665, St. Central, Goiânia - GO</p>
                 </div>
 
-                <a href="https://maps.app.goo.gl/nnQ4m6586yLRTDbj9" target="_blank" class="btn-action btn-primary">
+                <a href="https://maps.app.goo.gl/nnQ4m6586yLRTDbj9" target="_blank" class="btn-action btn-primary" onclick="trackClick('click_maps', 'Pagina_Loja')">
                     <svg width="20" height="20" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                     Abrir no Google Maps
                 </a>
@@ -744,7 +574,7 @@
                 <h2>Grupo Exclusivo</h2>
                 <p>Receba lançamentos, promoções relâmpago e conteúdo exclusivo para revendedoras em primeira mão.</p>
                 
-                <a href="https://chat.whatsapp.com/BPF1N1xJjLo13k97rgOq3X" target="_blank" class="btn-action btn-primary" style="margin-top:20px;">
+                <a href="https://chat.whatsapp.com/BPF1N1xJjLo13k97rgOq3X" target="_blank" class="btn-action btn-primary" style="margin-top:20px;" onclick="trackClick('click_grupo_vip', 'Pagina_VIP')">
                     Entrar no Grupo VIP
                 </a>
             </div>
@@ -753,7 +583,7 @@
     </div>
 
     <!-- Botão WhatsApp Flutuante com Texto -->
-    <a href="https://wa.me/5562981480687?text=Ol%C3%A1%2C%20estou%20no%20site%20e%20gostaria%20de%20atendimento." target="_blank" class="float-wa">
+    <a href="https://wa.me/5562981480687?text=Ol%C3%A1%2C%20estou%20no%20site%20e%20gostaria%20de%20atendimento." target="_blank" class="float-wa" onclick="trackClick('click_whatsapp_flutuante', 'Home_Geral')">
         <svg width="24" height="24" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
         Fale Conosco
     </a>
@@ -777,6 +607,14 @@
             if(target) {
                 target.classList.add('active');
                 window.scrollTo(0,0); // Rola para o topo
+                
+                // Track screen view no Analytics
+                if (typeof gtag === 'function') {
+                    gtag('event', 'screen_view', {
+                        'screen_name': viewId.replace('view-', ''),
+                        'app_name': 'Cjota Mini-Site'
+                    });
+                }
             }
         }
     </script>
