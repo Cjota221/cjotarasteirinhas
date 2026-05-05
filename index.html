@@ -140,7 +140,7 @@
             padding: 16px 25px;
             display: flex; 
             align-items: center;
-            justify-content: center; /* Centraliza o conjunto ícone + texto */
+            justify-content: center; 
             color: white; cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
             box-shadow: 0 15px 35px rgba(220, 46, 218, 0.35);
@@ -154,7 +154,7 @@
             padding: 14px 22px;
             display: flex; 
             align-items: center;
-            justify-content: center; /* Centraliza o conjunto ícone + texto */
+            justify-content: center; 
             margin-bottom: 15px;
             cursor: pointer;
             transition: all 0.2s;
@@ -165,7 +165,7 @@
         .pill-link:active, .pill-hero:active { transform: scale(0.96); }
 
         .text-box { 
-            text-align: left; /* Mantém o texto alinhado à esquerda dentro do seu bloco, mas o bloco fica no centro */
+            text-align: left; 
         }
         .text-box h3 { font-size: 1.05rem; font-weight: 800; color: var(--cor-primaria); margin-bottom: 1px; line-height: 1.2; }
         .text-box p { font-size: 0.78rem; color: var(--cor-texto-suave); font-weight: 600; line-height: 1.2; }
@@ -253,13 +253,25 @@
         }
         .footer-legal b { color: #888; font-weight: 800; }
 
-        .view { display: none; flex-direction: column; min-height: 100vh; }
+        .view { display: none; flex-direction: column; min-height: 100vh; background: #FFF; }
         .view.active { display: flex; animation: fadeIn 0.4s ease; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         .btn-voltar {
             background: #F8F9FA; border: none; width: 45px; height: 45px; 
             border-radius: 50%; color: var(--cor-primaria); margin: 25px; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .view-inner-content { padding: 0 24px 40px; text-align: center; }
+        .view-title { color: var(--cor-primaria); font-weight: 800; margin-bottom: 20px; font-size: 1.5rem; }
+        .view-desc { color: #666; font-size: 1rem; line-height: 1.6; margin-bottom: 30px; }
+
+        .btn-action-view {
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            background: var(--cor-primaria); color: white; padding: 18px;
+            border-radius: 100px; text-decoration: none; font-weight: 700;
+            box-shadow: 0 10px 20px rgba(220, 46, 218, 0.2);
         }
 
         svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
@@ -388,6 +400,68 @@
             </footer>
         </div>
 
+        <!-- ================= VIEWS INTERNAS (Páginas SPA) ================= -->
+
+        <!-- ATACADO -->
+        <div id="view-atacado" class="view">
+            <button class="btn-voltar" onclick="navigateTo('view-home')"><svg width="24" height="24" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+            <div class="view-inner-content">
+                <h2 class="view-title">Catálogo Atacado</h2>
+                <p class="view-desc">Acesse nosso catálogo virtual completo com preços exclusivos para revendedoras e lojistas.</p>
+                <a href="https://cjotarasteirinhas.com.br/" target="_blank" class="btn-action-view">ACESSAR SITE OFICIAL</a>
+            </div>
+        </div>
+
+        <!-- LOGOMARCA -->
+        <div id="view-personalizacao" class="view">
+            <button class="btn-voltar" onclick="navigateTo('view-home')"><svg width="24" height="24" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+            <div class="view-inner-content">
+                <h2 class="view-title">Sua Marca Própria</h2>
+                <p class="view-desc">Fabricamos rasteirinhas personalizadas com a sua logo. Tenha produtos exclusivos com a identidade da sua marca.</p>
+                <a href="https://wa.me/5562981480687?text=Quero%20saber%20mais%20sobre%20Personaliza%C3%A7%C3%A3o%20de%20Logomarca" target="_blank" class="btn-action-view">FALAR COM CONSULTOR</a>
+            </div>
+        </div>
+
+        <!-- FRANQUIAS -->
+        <div id="view-franquias" class="view">
+            <button class="btn-voltar" onclick="navigateTo('view-home')"><svg width="24" height="24" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+            <div class="view-inner-content">
+                <h2 class="view-title">C4 Franquias</h2>
+                <p class="view-desc">Sua loja virtual profissional já abastecida com produtos Cjota. Venda sem precisar de estoque físico.</p>
+                <a href="https://c4franquias.com/" target="_blank" class="btn-action-view">CONHECER FRANQUIA</a>
+            </div>
+        </div>
+
+        <!-- VIP -->
+        <div id="view-vip" class="view">
+            <button class="btn-voltar" onclick="navigateTo('view-home')"><svg width="24" height="24" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+            <div class="view-inner-content">
+                <h2 class="view-title">Grupo VIP</h2>
+                <p class="view-desc">Entre no nosso grupo exclusivo de lançamentos e receba ofertas e promoções relâmpago direto no seu celular.</p>
+                <a href="https://chat.whatsapp.com/BPF1N1xJjLo13k97rgOq3X" target="_blank" class="btn-action-view">ENTRAR NO GRUPO</a>
+            </div>
+        </div>
+
+        <!-- INDICA -->
+        <div id="view-cj-indica" class="view">
+            <button class="btn-voltar" onclick="navigateTo('view-home')"><svg width="24" height="24" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+            <div class="view-inner-content">
+                <h2 class="view-title">Cjota Indica</h2>
+                <p class="view-desc">Encontre as melhores opções de envio, transportadoras e excursões saindo de Goiânia para todo o Brasil.</p>
+                <a href="https://cjotaindica.netlify.app/" target="_blank" class="btn-action-view">VER LISTA DE ENVIOS</a>
+            </div>
+        </div>
+
+        <!-- LUCRO CERTO -->
+        <div id="view-lucro-certo" class="view">
+            <button class="btn-voltar" onclick="navigateTo('view-home')"><svg width="24" height="24" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+            <div class="view-inner-content">
+                <h2 class="view-title">Sistema Lucro Certo</h2>
+                <p class="view-desc">Gestão completa e profissional para empreendedoras do ramo de calçados. Organize vendas e estoque com facilidade.</p>
+                <a href="https://sistemalucrocerto.com/" target="_blank" class="btn-action-view">ACESSAR SISTEMA</a>
+            </div>
+        </div>
+
         <!-- GRUPO FLUTUANTE -->
         <div class="floating-group">
             <a href="https://calculadoraprecifique.com/" target="_blank" class="cta-floating-text">
@@ -396,18 +470,6 @@
             <a href="https://wa.me/5562981480687?text=Estou%20no%20link%20da%20Bio%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es" target="_blank" class="wa-float">
                 <svg width="35" height="35" viewBox="0 0 24 24" style="stroke-width: 2.2;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
             </a>
-        </div>
-
-        <!-- VIEW SPA: ATACADO -->
-        <div id="view-atacado" class="view">
-            <button class="btn-voltar" onclick="navigateTo('view-home')"><svg width="24" height="24" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
-            <div class="content-area" style="text-align: center; padding-top: 20px;">
-                <h2 style="color: var(--cor-primaria); margin-bottom: 25px; font-weight: 800;">Catálogo Atacado</h2>
-                <div style="background: white; padding: 30px; border-radius: 30px; box-shadow: var(--sombra-card); margin-bottom: 30px;">
-                    <p style="color: #666; margin-bottom: 30px; font-size: 1.1rem;">Acesse o catálogo atualizado para lojistas.</p>
-                    <a href="https://cjotarasteirinhas.com.br/" target="_blank" style="background: var(--cor-primaria); color: white; padding: 22px 50px; border-radius: 100px; text-decoration: none; font-weight: 800; display: inline-block;">IR PARA O SITE</a>
-                </div>
-            </div>
         </div>
 
     </div>
@@ -420,6 +482,14 @@
             if(target) {
                 target.classList.add('active');
                 window.scrollTo({top: 0, behavior: 'smooth'});
+                
+                const screenName = viewId.replace('view-', '');
+                if (typeof gtag === 'function') {
+                    gtag('event', 'page_view', {
+                        page_title: 'Cjota - ' + screenName,
+                        page_path: '/' + screenName
+                    });
+                }
             }
         }
 
